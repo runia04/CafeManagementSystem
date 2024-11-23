@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label7 = new System.Windows.Forms.Label();
-            this.orderLabel = new System.Windows.Forms.Label();
             this.closeLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.orderLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ItemGV)).BeginInit();
             this.SuspendLayout();
@@ -60,17 +60,6 @@
             this.label7.Size = new System.Drawing.Size(92, 33);
             this.label7.TabIndex = 18;
             this.label7.Text = "Users";
-            // 
-            // orderLabel
-            // 
-            this.orderLabel.AutoSize = true;
-            this.orderLabel.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.orderLabel.Location = new System.Drawing.Point(38, 169);
-            this.orderLabel.Name = "orderLabel";
-            this.orderLabel.Size = new System.Drawing.Size(91, 33);
-            this.orderLabel.TabIndex = 17;
-            this.orderLabel.Text = "Order";
             // 
             // closeLabel
             // 
@@ -257,6 +246,17 @@
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = false;
             // 
+            // orderLabel
+            // 
+            this.orderLabel.AutoSize = true;
+            this.orderLabel.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.orderLabel.Location = new System.Drawing.Point(38, 169);
+            this.orderLabel.Name = "orderLabel";
+            this.orderLabel.Size = new System.Drawing.Size(91, 33);
+            this.orderLabel.TabIndex = 17;
+            this.orderLabel.Text = "Order";
+            // 
             // ItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -283,7 +283,6 @@
         #endregion
 
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label orderLabel;
         private System.Windows.Forms.Label closeLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button addButton;
@@ -300,5 +299,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label orderLabel;
     }
 }

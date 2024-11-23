@@ -29,7 +29,19 @@ namespace CafeManagementSystem
             this.Hide();
             Form1 login = new Form1();
             login.Show();
-            //https://youtu.be/HR7Pd73BxbI?list=PLBpH5WxSM4d3tXXlS1hQLztvfVPqgwxB2&t=2985
+           
+        }
+
+        private void itemsLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemsForm item = new ItemsForm();
+            item.Show();
         }
     }
 }
