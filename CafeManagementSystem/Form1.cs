@@ -24,5 +24,19 @@ namespace CafeManagementSystem
             Application.Exit();
       
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GuestOrder guest = new GuestOrder();
+            guest.Show();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+            this.Hide();
+        }
     }
 }

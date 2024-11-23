@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CafeManagementSystem
 {
-    public partial class ItemForm : Form
+    public partial class ItemsForm : Form
     {
-        public ItemForm()
+        public ItemsForm()
         {
             InitializeComponent();
         }
