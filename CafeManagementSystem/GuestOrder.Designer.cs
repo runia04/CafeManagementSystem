@@ -83,7 +83,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(508, 701);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 46);
+            this.button2.Size = new System.Drawing.Size(226, 46);
             this.button2.TabIndex = 14;
             this.button2.Text = "Place The Order";
             this.button2.UseVisualStyleBackColor = false;
@@ -115,11 +115,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(780, 711);
+            this.label2.Location = new System.Drawing.Point(758, 708);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(213, 36);
+            this.label2.Size = new System.Drawing.Size(203, 33);
             this.label2.TabIndex = 11;
             this.label2.Text = "Order Amount";
             // 
@@ -181,7 +181,7 @@
             this.logoutLabel.AutoSize = true;
             this.logoutLabel.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.logoutLabel.Location = new System.Drawing.Point(23, 780);
+            this.logoutLabel.Location = new System.Drawing.Point(23, 753);
             this.logoutLabel.Name = "logoutLabel";
             this.logoutLabel.Size = new System.Drawing.Size(113, 33);
             this.logoutLabel.TabIndex = 8;

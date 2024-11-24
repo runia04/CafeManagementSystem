@@ -42,6 +42,14 @@ namespace CafeManagementSystem
             this.Hide();
             ItemsForm item = new ItemsForm();
             item.Show();
+            
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
         }
     }
 }

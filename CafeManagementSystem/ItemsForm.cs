@@ -16,5 +16,41 @@ namespace CafeManagementSystem
         {
             InitializeComponent();
         }
+
+        private void orderNoTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void ItemsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+        }
+
+        private void ordersButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+
+        }
+
+        private void logoutLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        
     }
 }
+
+

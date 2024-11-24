@@ -41,9 +41,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.closeLabel = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.logoutLabel = new System.Windows.Forms.Label();
             this.ordersButton = new System.Windows.Forms.Button();
+            this.usersButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemGV)).BeginInit();
@@ -202,23 +202,12 @@
             this.closeLabel.Text = "X";
             this.closeLabel.Click += new System.EventHandler(this.closeLabel_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(35, 238);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 33);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Users";
-            // 
             // logoutLabel
             // 
             this.logoutLabel.AutoSize = true;
             this.logoutLabel.Font = new System.Drawing.Font("Arial", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.logoutLabel.Location = new System.Drawing.Point(11, 796);
+            this.logoutLabel.Location = new System.Drawing.Point(12, 766);
             this.logoutLabel.Name = "logoutLabel";
             this.logoutLabel.Size = new System.Drawing.Size(113, 33);
             this.logoutLabel.TabIndex = 16;
@@ -227,17 +216,31 @@
             // 
             // ordersButton
             // 
-            this.ordersButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ordersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ordersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ordersButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ordersButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ordersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ordersButton.Location = new System.Drawing.Point(32, 160);
             this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(121, 47);
+            this.ordersButton.Size = new System.Drawing.Size(117, 47);
             this.ordersButton.TabIndex = 16;
             this.ordersButton.Text = "Orders";
             this.ordersButton.UseVisualStyleBackColor = false;
             this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
+            // 
+            // usersButton
+            // 
+            this.usersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.usersButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.usersButton.Location = new System.Drawing.Point(32, 238);
+            this.usersButton.Name = "usersButton";
+            this.usersButton.Size = new System.Drawing.Size(117, 47);
+            this.usersButton.TabIndex = 17;
+            this.usersButton.Text = "Users";
+            this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // UserOrder
             // 
@@ -245,9 +248,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1403, 855);
+            this.Controls.Add(this.usersButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.logoutLabel);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.closeLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -279,8 +282,8 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label closeLabel;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label logoutLabel;
         private System.Windows.Forms.Button ordersButton;
+        private System.Windows.Forms.Button usersButton;
     }
 }
