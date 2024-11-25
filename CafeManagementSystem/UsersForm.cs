@@ -8,26 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CafeManagementSystem.BLL;
 namespace CafeManagementSystem
 {
     public partial class UsersForm : Form
     {
+        Data data = new Data();
         public UsersForm()
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=MONIRUL;Initial Catalog=CafeDB;Integrated Security=True;TrustServerCertificate=True");
-      
+
         void populate()
         {
-            con.Open();
-            string query = "select Name,Phone,Password from [User]";
-            SqlDataAdapter sda = new SqlDataAdapter(query,con);
-            SqlCommandBuilder builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
+            string query = "select * from [User]";
+            DataSet ds = data.Populate(query);
             usersGV.DataSource = ds.Tables[0];
-            con.Close();
+            this.usersGV.Columns["Id"].Visible = false;
         }
         private void orderButton_Click(object sender, EventArgs e)
         {
@@ -51,29 +48,35 @@ namespace CafeManagementSystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
             string query = "";
             try
             {
+                if (phoneNoTextBox.Text == "" || userNameTextBox.Text == "" || passwordTextBox.Text == "")
+                {
+                    MessageBox.Show("Fillup all the fields.");
+                    return;
+                }
+               
                 query = "Insert into [User](Name,Phone,Password)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "')";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            SqlCommand cmd = new SqlCommand(query, con);
-           int rowNo= cmd.ExecuteNonQuery();
-            MessageBox.Show("User successfully created.");
-            con.Close();
-            populate();
+
+            int rowNo = data.AllFuntion(query);
+            if (rowNo > 0)
+            {
+                MessageBox.Show("User successfully created.");
+                populate();
+            }
+            else
+            {
+                MessageBox.Show("User not created.");
+
+            }
+
+
         }
 
         private void userNameTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -90,10 +93,10 @@ namespace CafeManagementSystem
         {
             try
             {
-               
-                userNameTextBox.Text= usersGV.Rows[e.RowIndex].Cells[0].Value.ToString();
-                phoneNoTextBox.Text = usersGV.Rows[e.RowIndex].Cells[1].Value.ToString();
-                passwordTextBox.Text = usersGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                idTextBox.Text = usersGV.Rows[e.RowIndex].Cells[0].Value.ToString();
+                userNameTextBox.Text = usersGV.Rows[e.RowIndex].Cells[1].Value.ToString();
+                phoneNoTextBox.Text = usersGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                passwordTextBox.Text = usersGV.Rows[e.RowIndex].Cells[3].Value.ToString();
             }
             catch
             {
@@ -103,7 +106,77 @@ namespace CafeManagementSystem
 
         private void label5_Click(object sender, EventArgs e)
         {
-            //https://youtu.be/HR7Pd73BxbI?list=PLBpH5WxSM4d3tXXlS1hQLztvfVPqgwxB2&t=4760
+            //
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (phoneNoTextBox.Text == "" || phoneNoTextBox.Text == null)
+            {
+                MessageBox.Show("Select the user to be deleted.");
+            }
+            else
+            {
+                int id = Convert.ToInt32(idTextBox.Text);
+                string query = "Delete From [User] Where Id='"+id+"'";
+                int rowNo = data.AllFuntion(query);
+                if (rowNo > 0)
+                {
+                    MessageBox.Show("User deleted successfully.");
+                    idTextBox.Text = "";
+                    userNameTextBox.Text = "";
+                    phoneNoTextBox.Text = "";
+                    passwordTextBox.Text = "";
+                    populate();
+                }
+                else
+                {
+                    MessageBox.Show("User not deleted.");
+
+                }
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            try { id = Convert.ToInt32(idTextBox.Text); }
+            catch
+            {
+                MessageBox.Show("Select the user.");
+                return;
+            }
+            if (phoneNoTextBox.Text == "" || userNameTextBox.Text == ""|| passwordTextBox.Text=="")
+            {
+                MessageBox.Show("Fillup all the fields.");
+            }
+            else
+            {
+                try
+                {
+                    
+
+                    string query = "Update [User] Set Name='" + userNameTextBox.Text + "',Phone='" + phoneNoTextBox.Text + "',Password='" + passwordTextBox.Text + "' Where Id='" + id + "'";
+                    int rowNo = data.AllFuntion(query);
+                    if (rowNo > 0)
+                    {
+                        MessageBox.Show("User updated successfully.");
+
+
+                        populate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not updated.");
+
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }
