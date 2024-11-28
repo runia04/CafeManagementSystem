@@ -87,6 +87,7 @@ namespace CafeManagementSystem
         private void UsersForm_Load(object sender, EventArgs e)
         {
             populate();
+
         }
 
         private void usersGV_CellContentClick(object sender, DataGridViewCellEventArgs e)

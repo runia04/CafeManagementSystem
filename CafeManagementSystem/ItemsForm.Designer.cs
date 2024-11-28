@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.closeLabel = new System.Windows.Forms.Label();
             this.manageItemsLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.itemNoTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.itemNameTextBox = new System.Windows.Forms.MaskedTextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.itemPriceTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -51,6 +49,8 @@
             this.logoutLabel = new System.Windows.Forms.Label();
             this.ordersButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
+            this.itemNameTextBox = new System.Windows.Forms.TextBox();
+            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGV)).BeginInit();
             this.SuspendLayout();
@@ -96,18 +96,10 @@
             this.itemNoTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemNoTextBox.Location = new System.Drawing.Point(190, 231);
             this.itemNoTextBox.Name = "itemNoTextBox";
+            this.itemNoTextBox.ReadOnly = true;
             this.itemNoTextBox.Size = new System.Drawing.Size(201, 35);
             this.itemNoTextBox.TabIndex = 9;
             this.itemNoTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.orderNoTextBox_MaskInputRejected);
-            // 
-            // itemNameTextBox
-            // 
-            this.itemNameTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemNameTextBox.Location = new System.Drawing.Point(190, 323);
-            this.itemNameTextBox.Name = "itemNameTextBox";
-            this.itemNameTextBox.Size = new System.Drawing.Size(201, 35);
-            this.itemNameTextBox.TabIndex = 10;
-            this.itemNameTextBox.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.itemNameTextBox_MaskInputRejected);
             // 
             // addButton
             // 
@@ -146,14 +138,6 @@
             this.label3.Text = "Item Name";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // itemPriceTextBox
-            // 
-            this.itemPriceTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemPriceTextBox.Location = new System.Drawing.Point(190, 493);
-            this.itemPriceTextBox.Name = "itemPriceTextBox";
-            this.itemPriceTextBox.Size = new System.Drawing.Size(201, 35);
-            this.itemPriceTextBox.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -188,6 +172,7 @@
             this.deleteButton.TabIndex = 12;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -201,10 +186,13 @@
             this.editButton.TabIndex = 12;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.itemPriceTextBox);
+            this.panel1.Controls.Add(this.itemNameTextBox);
             this.panel1.Controls.Add(this.idTextBox);
             this.panel1.Controls.Add(this.categoryLabel);
             this.panel1.Controls.Add(this.itemsGV);
@@ -212,11 +200,9 @@
             this.panel1.Controls.Add(this.deleteButton);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.itemPriceTextBox);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.addButton);
-            this.panel1.Controls.Add(this.itemNameTextBox);
             this.panel1.Controls.Add(this.itemNoTextBox);
             this.panel1.Controls.Add(this.categoryComboBox);
             this.panel1.Controls.Add(this.manageItemsLabel);
@@ -247,33 +233,33 @@
             // 
             // itemsGV
             // 
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.itemsGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.itemsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.itemsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle8;
             this.itemsGV.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.itemsGV.Location = new System.Drawing.Point(413, 196);
             this.itemsGV.Name = "itemsGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.itemsGV.RowHeadersWidth = 62;
             this.itemsGV.RowTemplate.Height = 27;
-            this.itemsGV.Size = new System.Drawing.Size(687, 481);
+            this.itemsGV.Size = new System.Drawing.Size(681, 481);
             this.itemsGV.TabIndex = 20;
             this.itemsGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemsGV_CellContentClick);
             // 
@@ -317,6 +303,22 @@
             this.usersButton.UseVisualStyleBackColor = false;
             this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
+            // itemNameTextBox
+            // 
+            this.itemNameTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameTextBox.Location = new System.Drawing.Point(190, 329);
+            this.itemNameTextBox.Name = "itemNameTextBox";
+            this.itemNameTextBox.Size = new System.Drawing.Size(201, 28);
+            this.itemNameTextBox.TabIndex = 23;
+            // 
+            // itemPriceTextBox
+            // 
+            this.itemPriceTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemPriceTextBox.Location = new System.Drawing.Point(190, 503);
+            this.itemPriceTextBox.Name = "itemPriceTextBox";
+            this.itemPriceTextBox.Size = new System.Drawing.Size(201, 28);
+            this.itemPriceTextBox.TabIndex = 24;
+            // 
             // ItemsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -347,11 +349,9 @@
         private System.Windows.Forms.Label manageItemsLabel;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.MaskedTextBox itemNoTextBox;
-        private System.Windows.Forms.MaskedTextBox itemNameTextBox;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox itemPriceTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button deleteButton;
@@ -363,5 +363,7 @@
         private System.Windows.Forms.DataGridView itemsGV;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.MaskedTextBox idTextBox;
+        private System.Windows.Forms.TextBox itemNameTextBox;
+        private System.Windows.Forms.TextBox itemPriceTextBox;
     }
 }

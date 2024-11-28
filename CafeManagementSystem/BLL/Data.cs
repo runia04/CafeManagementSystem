@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Data;
+using System.Collections;
 namespace CafeManagementSystem.BLL
 {
     public  class Data
@@ -13,20 +14,20 @@ namespace CafeManagementSystem.BLL
         SqlConnection con = new SqlConnection(@"Data Source=MONIRUL;Initial Catalog=CafeDB;Integrated Security=True;TrustServerCertificate=True");
         public int AllFuntion(string query)
         {
-            //try
-            //{
-            //    con.Close();
-            //    con.Open();
-            //    SqlCommand cmd = new SqlCommand(query, con);
-            //    int rowNo = cmd.ExecuteNonQuery();
+            try
+            {
+                con.Close();
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                int rowNo = cmd.ExecuteNonQuery();
 
-            //    con.Close();
-            //    return rowNo;
-            //}
-            //catch (Exception ex)
-            //{
-            //    return 0; 
-            //}
+                con.Close();
+                return rowNo;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
             return 1;
         }
         public DataSet Populate(string query)
@@ -41,6 +42,33 @@ namespace CafeManagementSystem.BLL
             con.Close();
             return ds;
         }
-      
+
+        public int GetItemNo(string query)
+        {
+            int id = 0;
+            try
+            {
+                con.Close();
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                try
+                {
+                   
+                    id = (int)cmd.ExecuteScalar();
+                }
+                catch(Exception ex)
+                {
+                    id = 0;
+                }
+
+                con.Close();
+              
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            return id;
+        }
     }
 }

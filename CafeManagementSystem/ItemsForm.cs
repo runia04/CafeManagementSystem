@@ -19,15 +19,17 @@ namespace CafeManagementSystem
         {
             InitializeComponent();
         }
-        void populate()
+        void populateItemDataGrid()
         {
-   
+
             string query = "select * from [Item]";
-         
+
             DataSet ds = data.Populate(query);
             itemsGV.DataSource = ds.Tables[0];
             this.itemsGV.Columns["Id"].Visible = false;
-
+            this.itemsGV.Columns["Price"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //   this.itemsGV.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            this.itemsGV.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
         private void orderNoTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
@@ -36,7 +38,21 @@ namespace CafeManagementSystem
 
         private void ItemsForm_Load(object sender, EventArgs e)
         {
-            populate();
+            populateItemDataGrid();
+            PopultaeItemNo();
+        }
+
+        private void PopultaeItemNo()
+        {
+            int itemNo = 0;
+            if (itemsGV.Rows.Count > 1)
+            {
+
+                string sql = "Select Top(1) No From [Item] Order by ID DESC";
+                itemNo = data.GetItemNo(sql);
+            }
+            itemNo++;
+            itemNoTextBox.Text = itemNo.ToString();
         }
 
         private void usersButton_Click(object sender, EventArgs e)
@@ -63,7 +79,7 @@ namespace CafeManagementSystem
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            if(itemNameTextBox.Text==""|| itemNoTextBox.Text == "" || itemPriceTextBox.Text == "")
+            if (itemNameTextBox.Text == "" || itemNoTextBox.Text == "" || itemPriceTextBox.Text == "")
             {
                 MessageBox.Show("Fill All The Data.");
             }
@@ -74,10 +90,18 @@ namespace CafeManagementSystem
                     if (categoryComboBox.SelectedIndex == -1)
                     {
                         MessageBox.Show("Please select category.");
-                       
+
                     }
                     else
                     {
+                        try
+                        {
+                            decimal.Parse(itemPriceTextBox.Text);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Please enter price");
+                        }
                         string value = categoryComboBox.SelectedItem.ToString();
                         string query = "Insert into [Item](No,Name,Category,Price) VALUES('" + itemNoTextBox.Text + "','" + itemNameTextBox.Text + "','" + categoryComboBox.SelectedItem.ToString() + "','" + itemPriceTextBox.Text + "')";
                         int rowNo = data.AllFuntion(query);
@@ -86,7 +110,8 @@ namespace CafeManagementSystem
                             MessageBox.Show("Item created successfully.");
 
 
-                            populate();
+                            populateItemDataGrid();
+                            PopultaeItemNo();
                         }
                         else
                         {
@@ -102,7 +127,7 @@ namespace CafeManagementSystem
             }
         }
 
-        
+
         private void itemNameTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
@@ -126,11 +151,91 @@ namespace CafeManagementSystem
                 itemNoTextBox.Text = itemsGV.Rows[e.RowIndex].Cells[1].Value.ToString();
                 itemNameTextBox.Text = itemsGV.Rows[e.RowIndex].Cells[2].Value.ToString();
                 categoryComboBox.SelectedItem = itemsGV.Rows[e.RowIndex].Cells[3].Value.ToString();
-                itemPriceTextBox.Text = itemsGV.Rows[e.RowIndex].Cells[2].Value.ToString();
+                itemPriceTextBox.Text = itemsGV.Rows[e.RowIndex].Cells[4].Value.ToString();
             }
             catch
             {
 
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (itemPriceTextBox.Text == "" || itemNameTextBox.Text == null)
+            {
+                MessageBox.Show("Select the item to be deleted.");
+            }
+            else
+            {
+                int id = Convert.ToInt32(idTextBox.Text);
+                string query = "Delete From [Item] Where Id='" + id + "'";
+                int rowNo = data.AllFuntion(query);
+                if (rowNo > 0)
+                {
+                    MessageBox.Show("User deleted successfully.");
+                    idTextBox.Text = "";
+                    itemNoTextBox.Text = "";
+                    itemNameTextBox.Text = "";
+                    itemPriceTextBox.Text = "";
+                    populateItemDataGrid();
+                    PopultaeItemNo();
+                }
+                else
+                {
+                    MessageBox.Show("User not deleted.");
+
+                }
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+
+            try { id = Convert.ToInt32(idTextBox.Text); }
+            catch
+            {
+                MessageBox.Show("Select the item.");
+                return;
+            }
+            if (itemPriceTextBox.Text == "" || itemNameTextBox.Text == "" || categoryComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Fillup all the fields.");
+            }
+            else
+            {
+                try
+                {
+                    decimal.Parse(itemPriceTextBox.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter price");
+                    return;
+                }
+                try
+                {
+
+
+                    string query = "Update [Item] Set Name='" + itemNameTextBox.Text + "',Price='" + itemPriceTextBox.Text + "',Category='" + categoryComboBox.SelectedItem.ToString() + "' Where Id='" + id + "'";
+                    int rowNo = data.AllFuntion(query);
+                    if (rowNo > 0)
+                    {
+                        MessageBox.Show("Item updated successfully.");
+
+
+                        populateItemDataGrid();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item not updated.");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
