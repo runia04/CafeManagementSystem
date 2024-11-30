@@ -47,6 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Data.cs" />
+    <Compile Include="CafeDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CafeDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CafeDBDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +113,28 @@
     <EmbeddedResource Include="UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CafeDBDataSet.xsc">
+      <DependentUpon>CafeDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CafeDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CafeDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CafeDBDataSet.xss">
+      <DependentUpon>CafeDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CafeDBDataSet1.xsc">
+      <DependentUpon>CafeDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CafeDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CafeDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CafeDBDataSet1.xss">
+      <DependentUpon>CafeDBDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

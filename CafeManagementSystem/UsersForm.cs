@@ -57,7 +57,7 @@ namespace CafeManagementSystem
                     return;
                 }
                
-                query = "Insert into [User](Name,Phone,Password)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "')";
+                query = "Insert into [User](Name,Phone,Password,IsLoggedIn)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "','false')";
             }
             catch (Exception ex)
             {

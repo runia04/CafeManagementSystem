@@ -70,5 +70,60 @@ namespace CafeManagementSystem.BLL
             }
             return id;
         }
+        public decimal GetTempOrderTotalPrice(string query)
+        {
+            decimal totalPrice = 0;
+            try
+            {
+                con.Close();
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                try
+                {
+
+                    totalPrice = (decimal)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    totalPrice = 0;
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            return totalPrice;
+        }
+
+        public string GetOrderNo(string query)
+        {
+            string number = "";
+            try
+            {
+                con.Close();
+                con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                try
+                {
+
+                    number = (string)cmd.ExecuteScalar();
+                }
+                catch (Exception ex)
+                {
+                    number = "";
+                }
+
+                con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+            return number;
+        }
     }
 }
