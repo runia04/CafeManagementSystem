@@ -43,7 +43,7 @@ namespace CafeManagementSystem.BLL
             return ds;
         }
 
-        public int GetItemNo(string query)
+        public int GetIntegerColumnValue(string query)
         {
             int id = 0;
             try
@@ -98,7 +98,7 @@ namespace CafeManagementSystem.BLL
             return totalPrice;
         }
 
-        public string GetOrderNo(string query)
+        public string GetStringColumnValue(string query)
         {
             string number = "";
             try
@@ -125,5 +125,7 @@ namespace CafeManagementSystem.BLL
             }
             return number;
         }
+
+       
     }
 }

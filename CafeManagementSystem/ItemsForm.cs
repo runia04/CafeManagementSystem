@@ -49,7 +49,7 @@ namespace CafeManagementSystem
             {
 
                 string sql = "Select Top(1) No From [Item] Order by ID DESC";
-                itemNo = data.GetItemNo(sql);
+                itemNo = data.GetIntegerColumnValue(sql);
             }
             itemNo++;
             itemNoTextBox.Text = itemNo.ToString();

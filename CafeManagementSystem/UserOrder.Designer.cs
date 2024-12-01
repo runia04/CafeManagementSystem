@@ -29,13 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.orderNoLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dateLabel = new System.Windows.Forms.Label();
             this.orderAmountlabel = new System.Windows.Forms.Label();
             this.orderDataGridView = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qunatityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isUserDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.tempOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cafeDBDataSet1 = new CafeManagementSystem.CafeDBDataSet1();
             this.itemDataGridView = new System.Windows.Forms.DataGridView();
             this.Select = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,11 +60,10 @@
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cafeDBDataSet = new CafeManagementSystem.CafeDBDataSet();
-            this.button2 = new System.Windows.Forms.Button();
+            this.orderButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.closeLabel = new System.Windows.Forms.Label();
@@ -58,30 +71,18 @@
             this.ordersButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
             this.itemTableAdapter = new CafeManagementSystem.CafeDBDataSetTableAdapters.ItemTableAdapter();
-            this.dateLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.orderNoLabel = new System.Windows.Forms.Label();
             this.cafeDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cafeDBDataSet1 = new CafeManagementSystem.CafeDBDataSet1();
-            this.tempOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tempOrderTableAdapter = new CafeManagementSystem.CafeDBDataSet1TableAdapters.TempOrderTableAdapter();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qunatityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isUserDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.sellerLabel = new System.Windows.Forms.Label();
+            this.userIDLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -98,17 +99,18 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.Controls.Add(this.userIDLabel);
+            this.panel1.Controls.Add(this.sellerLabel);
             this.panel1.Controls.Add(this.orderNoLabel);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.dateLabel);
             this.panel1.Controls.Add(this.orderAmountlabel);
             this.panel1.Controls.Add(this.orderDataGridView);
             this.panel1.Controls.Add(this.itemDataGridView);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.orderButton);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.maskedTextBox2);
             this.panel1.Controls.Add(this.categoryComboBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(135, 36);
@@ -116,12 +118,45 @@
             this.panel1.Size = new System.Drawing.Size(1133, 793);
             this.panel1.TabIndex = 12;
             // 
+            // orderNoLabel
+            // 
+            this.orderNoLabel.AutoSize = true;
+            this.orderNoLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderNoLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.orderNoLabel.Location = new System.Drawing.Point(396, 75);
+            this.orderNoLabel.Name = "orderNoLabel";
+            this.orderNoLabel.Size = new System.Drawing.Size(104, 37);
+            this.orderNoLabel.TabIndex = 24;
+            this.orderNoLabel.Text = "Order";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(226, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 36);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "Order No:";
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dateLabel.Location = new System.Drawing.Point(952, 81);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(81, 36);
+            this.dateLabel.TabIndex = 22;
+            this.dateLabel.Text = "Date";
+            // 
             // orderAmountlabel
             // 
             this.orderAmountlabel.AutoSize = true;
             this.orderAmountlabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderAmountlabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.orderAmountlabel.Location = new System.Drawing.Point(900, 735);
+            this.orderAmountlabel.Location = new System.Drawing.Point(883, 736);
             this.orderAmountlabel.Name = "orderAmountlabel";
             this.orderAmountlabel.Size = new System.Drawing.Size(78, 36);
             this.orderAmountlabel.TabIndex = 21;
@@ -150,6 +185,99 @@
             this.orderDataGridView.Size = new System.Drawing.Size(928, 256);
             this.orderDataGridView.TabIndex = 20;
             this.orderDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDataGridView_CellContentClick);
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn1.Visible = false;
+            this.idDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
+            this.categoryDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // itemIdDataGridViewTextBoxColumn
+            // 
+            this.itemIdDataGridViewTextBoxColumn.DataPropertyName = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
+            this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
+            this.itemIdDataGridViewTextBoxColumn.Visible = false;
+            this.itemIdDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            this.itemNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // qunatityDataGridViewTextBoxColumn
+            // 
+            this.qunatityDataGridViewTextBoxColumn.DataPropertyName = "Qunatity";
+            this.qunatityDataGridViewTextBoxColumn.HeaderText = "Qunatity";
+            this.qunatityDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.qunatityDataGridViewTextBoxColumn.Name = "qunatityDataGridViewTextBoxColumn";
+            this.qunatityDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // totalPriceDataGridViewTextBoxColumn
+            // 
+            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
+            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
+            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
+            this.totalPriceDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // isUserDataGridViewCheckBoxColumn
+            // 
+            this.isUserDataGridViewCheckBoxColumn.DataPropertyName = "IsUser";
+            this.isUserDataGridViewCheckBoxColumn.HeaderText = "IsUser";
+            this.isUserDataGridViewCheckBoxColumn.MinimumWidth = 8;
+            this.isUserDataGridViewCheckBoxColumn.Name = "isUserDataGridViewCheckBoxColumn";
+            this.isUserDataGridViewCheckBoxColumn.Visible = false;
+            this.isUserDataGridViewCheckBoxColumn.Width = 150;
+            // 
+            // Delete
+            // 
+            this.Delete.DataPropertyName = "Delete";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 8;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            this.Delete.Width = 150;
+            // 
+            // tempOrderBindingSource
+            // 
+            this.tempOrderBindingSource.DataMember = "TempOrder";
+            this.tempOrderBindingSource.DataSource = this.cafeDBDataSet1;
+            // 
+            // cafeDBDataSet1
+            // 
+            this.cafeDBDataSet1.DataSetName = "CafeDBDataSet1";
+            this.cafeDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // itemDataGridView
             // 
@@ -222,8 +350,8 @@
             // 
             this.priceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
@@ -233,9 +361,10 @@
             // Quantity
             // 
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle9;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 8;
             this.Quantity.Name = "Quantity";
@@ -251,18 +380,19 @@
             this.cafeDBDataSet.DataSetName = "CafeDBDataSet";
             this.cafeDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // button2
+            // orderButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(362, 726);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(256, 45);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Place The Order";
-            this.button2.UseVisualStyleBackColor = false;
+            this.orderButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.orderButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.orderButton.Location = new System.Drawing.Point(343, 727);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(256, 45);
+            this.orderButton.TabIndex = 14;
+            this.orderButton.Text = "Place The Order";
+            this.orderButton.UseVisualStyleBackColor = false;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
             // 
             // label3
             // 
@@ -294,20 +424,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(636, 735);
+            this.label2.Location = new System.Drawing.Point(605, 735);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 36);
+            this.label2.Size = new System.Drawing.Size(262, 36);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Order Amount:";
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(15, 210);
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(165, 35);
-            this.maskedTextBox2.TabIndex = 10;
-            this.maskedTextBox2.Text = "SellerName";
+            this.label2.Text = "Order Amount:\"¥\"";
             // 
             // categoryComboBox
             // 
@@ -390,139 +511,37 @@
             // 
             this.itemTableAdapter.ClearBeforeFill = true;
             // 
-            // dateLabel
-            // 
-            this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dateLabel.Location = new System.Drawing.Point(952, 81);
-            this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(81, 36);
-            this.dateLabel.TabIndex = 22;
-            this.dateLabel.Text = "Date";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(226, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 36);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "Order No:";
-            // 
-            // orderNoLabel
-            // 
-            this.orderNoLabel.AutoSize = true;
-            this.orderNoLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderNoLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.orderNoLabel.Location = new System.Drawing.Point(396, 75);
-            this.orderNoLabel.Name = "orderNoLabel";
-            this.orderNoLabel.Size = new System.Drawing.Size(104, 37);
-            this.orderNoLabel.TabIndex = 24;
-            this.orderNoLabel.Text = "Order";
-            // 
             // cafeDBDataSetBindingSource
             // 
             this.cafeDBDataSetBindingSource.DataSource = this.cafeDBDataSet;
             this.cafeDBDataSetBindingSource.Position = 0;
             // 
-            // cafeDBDataSet1
-            // 
-            this.cafeDBDataSet1.DataSetName = "CafeDBDataSet1";
-            this.cafeDBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tempOrderBindingSource
-            // 
-            this.tempOrderBindingSource.DataMember = "TempOrder";
-            this.tempOrderBindingSource.DataSource = this.cafeDBDataSet1;
-            // 
             // tempOrderTableAdapter
             // 
             this.tempOrderTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn1
+            // sellerLabel
             // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Visible = false;
-            this.idDataGridViewTextBoxColumn1.Width = 150;
+            this.sellerLabel.AutoSize = true;
+            this.sellerLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sellerLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sellerLabel.Location = new System.Drawing.Point(17, 202);
+            this.sellerLabel.Name = "sellerLabel";
+            this.sellerLabel.Size = new System.Drawing.Size(107, 37);
+            this.sellerLabel.TabIndex = 25;
+            this.sellerLabel.Text = "Seller";
             // 
-            // categoryDataGridViewTextBoxColumn1
+            // userIDLabel
             // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "Category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "Category";
-            this.categoryDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // itemIdDataGridViewTextBoxColumn
-            // 
-            this.itemIdDataGridViewTextBoxColumn.DataPropertyName = "ItemId";
-            this.itemIdDataGridViewTextBoxColumn.HeaderText = "ItemId";
-            this.itemIdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.itemIdDataGridViewTextBoxColumn.Name = "itemIdDataGridViewTextBoxColumn";
-            this.itemIdDataGridViewTextBoxColumn.Visible = false;
-            this.itemIdDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            this.itemNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // qunatityDataGridViewTextBoxColumn
-            // 
-            this.qunatityDataGridViewTextBoxColumn.DataPropertyName = "Qunatity";
-            this.qunatityDataGridViewTextBoxColumn.HeaderText = "Qunatity";
-            this.qunatityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.qunatityDataGridViewTextBoxColumn.Name = "qunatityDataGridViewTextBoxColumn";
-            this.qunatityDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // totalPriceDataGridViewTextBoxColumn
-            // 
-            this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.HeaderText = "TotalPrice";
-            this.totalPriceDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-            this.totalPriceDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // isUserDataGridViewCheckBoxColumn
-            // 
-            this.isUserDataGridViewCheckBoxColumn.DataPropertyName = "IsUser";
-            this.isUserDataGridViewCheckBoxColumn.HeaderText = "IsUser";
-            this.isUserDataGridViewCheckBoxColumn.MinimumWidth = 8;
-            this.isUserDataGridViewCheckBoxColumn.Name = "isUserDataGridViewCheckBoxColumn";
-            this.isUserDataGridViewCheckBoxColumn.Visible = false;
-            this.isUserDataGridViewCheckBoxColumn.Width = 150;
-            // 
-            // Delete
-            // 
-            this.Delete.DataPropertyName = "Delete";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Delete.HeaderText = "Delete";
-            this.Delete.MinimumWidth = 8;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            this.Delete.Width = 150;
+            this.userIDLabel.AutoSize = true;
+            this.userIDLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.userIDLabel.Location = new System.Drawing.Point(8, 257);
+            this.userIDLabel.Name = "userIDLabel";
+            this.userIDLabel.Size = new System.Drawing.Size(119, 37);
+            this.userIDLabel.TabIndex = 26;
+            this.userIDLabel.Text = "UserID";
+            this.userIDLabel.Visible = false;
             // 
             // UserOrder
             // 
@@ -544,12 +563,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -559,11 +578,10 @@
 
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button orderButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label closeLabel;
@@ -574,13 +592,6 @@
         private CafeDBDataSet cafeDBDataSet;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private CafeDBDataSetTableAdapters.ItemTableAdapter itemTableAdapter;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridView orderDataGridView;
         private System.Windows.Forms.Label orderAmountlabel;
         private System.Windows.Forms.Label dateLabel;
@@ -599,5 +610,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isUserDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Select;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn noDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.Label sellerLabel;
+        private System.Windows.Forms.Label userIDLabel;
     }
 }

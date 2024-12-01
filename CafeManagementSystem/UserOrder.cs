@@ -1,4 +1,5 @@
 ﻿using CafeManagementSystem.BLL;
+using CafeManagementSystem.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,17 +90,26 @@ namespace CafeManagementSystem
                                 {
                                     if (itemDataGridView.Rows[i].Cells[6].Value == null)
                                     {
-                                        MessageBox.Show("Enter order quantity.");
-                                        break;
+                                     //   itemDataGridView.Rows[i].Cells[6].Value = "Enter Quantity";
+                                        MessageBox.Show("Enter selected item  order quantity.");
+                                        return;
                                     }
-                                    string quantity = itemDataGridView.Rows[i].Cells[6].Value.ToString();
-                                    orderQnty = int.Parse(quantity);
-                                    quantityCount++;
+                                   
+                                    try
+                                    {
+                                        if (itemDataGridView.Rows[i].Cells[6].Value != null)
+                                        {
+                                            string quantity = itemDataGridView.Rows[i].Cells[6].Value.ToString();
+                                            orderQnty = int.Parse(quantity);
+                                            quantityCount++;
+                                        }
+                                    }
+                                    catch { }
                                 }
                                 catch (Exception ex)
                                 {
                                     MessageBox.Show("Enter order quantity.");
-                                    break;
+                                    ;
                                 }
                             }
 
@@ -145,6 +155,7 @@ namespace CafeManagementSystem
                 }
                     LoadOrderDataGV();
                     PopulateOrderDT();
+                    OrderButtonEnabled();
             }
                 }
             catch
@@ -160,20 +171,11 @@ namespace CafeManagementSystem
 
             DataSet ds = data.Populate(query);
             orderDataGridView.DataSource = ds.Tables[0];
-            //this.orderDataGridView.Columns["Id"].Visible = false;
-            //this.orderDataGridView.Columns["ItemId"].Visible = false;
-            //this.orderDataGridView.Columns["IsUser"].Visible = false;
-            //this.orderDataGridView.Columns["Price"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;    
-            //this.orderDataGridView.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //this.orderDataGridView.Columns["Qunatity"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //this.orderDataGridView.Columns["Qunatity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //this.orderDataGridView.Columns["TotalPrice"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //this.orderDataGridView.Columns["TotalPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            data = new Data();
+                     data = new Data();
             query = "SELECT SUM (TotalPrice)FROM TempOrder WHERE IsUser='true'";
 
             decimal totalPrice = data.GetTempOrderTotalPrice(query);
-            orderAmountlabel.Text = totalPrice.ToString()+ "¥";
+            orderAmountlabel.Text = totalPrice.ToString();
         }
 
         private void UserOrder_Load(object sender, EventArgs e)
@@ -182,10 +184,44 @@ namespace CafeManagementSystem
             this.tempOrderTableAdapter.Fill(this.cafeDBDataSet1.TempOrder);
             // TODO: This line of code loads data into the 'cafeDBDataSet.Item' table. You can move, or remove it, as needed.
             this.itemTableAdapter.Fill(this.cafeDBDataSet.Item);
-            PopulateOrderDT();
+          
             DeleteDataFromTempOrder();
+            LoadOrderDataGV();
+            PopulateOrderDT();
             dateLabel.Text = DateTime.Today.Date.ToString("MM/dd/yy");
             CreateOrderNo();
+            OrderButtonEnabled();
+            GetUserName();
+        }
+
+        private void GetUserName()
+        {
+            data=new Data ();
+            string sql = "Select Name FROM [User] WHERE IsLoggedIn='true'";
+            string  name = data.GetStringColumnValue(sql);
+            sellerLabel.Text = name;
+            sql = "Select Id FROM [User] WHERE IsLoggedIn='true'";
+            int userId = data.GetIntegerColumnValue(sql);
+            userIDLabel.Text = userId.ToString();
+        }
+
+        private void OrderButtonEnabled()
+        {
+            try
+            {
+                if (orderDataGridView.RowCount > 1)
+                {
+                    orderButton.Enabled = true;
+                }
+                else
+                {
+                    orderButton.Enabled = false;
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void CreateOrderNo()
@@ -195,7 +231,7 @@ namespace CafeManagementSystem
             string newOrderNo = "";
             if (orderNo=="" || orderNo == null)
             {
-                orderNo= "0001";
+                newOrderNo = "0001";
             }
             else
             {
@@ -221,7 +257,7 @@ namespace CafeManagementSystem
             int day = DateTime.Today.Day;
             data = new Data();
             string query = "Select TOP(1) Number FROM OrderSerial WHERE Day='" + day + "' AND Month='" + month + "' AND Year='" + year + "' ORDER BY ID DESC";
-            return  data.GetOrderNo(query);
+            return  data.GetStringColumnValue(query);
         }
 
         private void InsetOrderSerial()
@@ -266,22 +302,131 @@ namespace CafeManagementSystem
                 PopulateOrderDT();
             
         }
-       
-
-        private void itemsGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-       
-        }
 
         private void orderDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                int id = int.Parse(orderDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+                data = new Data();
+                string sqlQury = "DELETE FROM TempOrder WHERE Id='" + id+"'";
+                int result = data.AllFuntion(sqlQury);
+                if (result > 0)
+                {
+                    LoadOrderDataGV();
+                    OrderButtonEnabled();
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+        }
+
+        private void orderButton_Click(object sender, EventArgs e)
+        {
+            int masterID = 0;
+            try
+            {
+                if (orderDataGridView.Rows.Count > 1)
+
+                {
+                    int userID = 0;
+                    OrderMaster orderMaster = new OrderMaster();
+                    try
+                    { 
+                        orderMaster.UserID=int.Parse(userIDLabel.Text);
+                    }
+                    catch(Exception ex) 
+                    {
+                    }
+                    orderMaster.Date = DateTime.Today.Date;
+                    orderMaster.OrderID = orderNoLabel.Text;
+                    orderMaster.IsGuest = false;
+                    try
+                    {
+                        orderMaster.TotalAmount = decimal.Parse(orderAmountlabel.Text);
+                    }
+                    catch { }
+                    string sql = "Insert into OrderMaster Values('"+orderMaster.UserID+"','"+orderMaster.Date+"','"+orderMaster.TotalAmount+"','"+orderMaster.IsGuest+"','"+orderMaster.OrderID+"')";
+                    data = new Data();
+                    int result = data.AllFuntion(sql);
+                   
+                    if (result > 0)
+                    {
+                        data = new Data();
+                        sql = "SELECT ID FROM OrderMaster WHERE OrderID='"+ orderNoLabel.Text + "'";
+                        data = new Data();
+                        masterID = data.GetIntegerColumnValue(sql);
+                    }
+                    int detsilsResult = 0;
+                    if (masterID > 0)
+                    {
+                        for (int i = 0; i < orderDataGridView.Rows.Count-1; i++)
+                        {
+                            OrderDetail orderDetailObj = new OrderDetail();
+                            orderDetailObj.OrderID = orderNoLabel.Text;
+                            orderDetailObj.MasterID = masterID;
+                            orderDetailObj.Category = orderDataGridView.Rows[i].Cells[1].Value.ToString();
+                        try
+                            {
+                                orderDetailObj.ItemID = int.Parse(orderDataGridView.Rows[i].Cells[2].Value.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                            try
+                            {
+                                string qnty = orderDataGridView.Rows[i].Cells[4].Value.ToString();
+                                orderDetailObj.Quantity = int.Parse(qnty);
+                            }
+                            catch(Exception ex)
+                            {
+                                orderDetailObj.Quantity = 0;
+                            }
+                            try
+                            {
+                                orderDetailObj.Price = decimal.Parse(orderDataGridView.Rows[i].Cells[5].Value.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                orderDetailObj.Price = 0;
+                            }
+                            try
+                            {
+                                orderDetailObj.Total = decimal.Parse(orderDataGridView.Rows[i].Cells[6].Value.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                orderDetailObj.Total = 0;
+                            }
+                            data = new Data();
+                             detsilsResult = data.AllFuntion(sql);
+                        }
+                        if (detsilsResult > 0)
+                        {
+                            DeleteDataFromTempOrder();
+                            LoadOrderDataGV();
+                            PopulateOrderDT();
+                           // dateLabel.Text = DateTime.Today.Date.ToString("MM/dd/yy");
+                            CreateOrderNo();
+                            OrderButtonEnabled();
+                           // GetUserName();
+                        }
+                        else
+                        {
+                            data = new Data();
+                            sql = "DELETE FROM OrderMaster WHERE ID='"+ masterID + "' ";
+                            int delete = data.AllFuntion(sql);
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

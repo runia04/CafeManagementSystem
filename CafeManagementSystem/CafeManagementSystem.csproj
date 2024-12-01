@@ -75,6 +75,8 @@
     <Compile Include="ItemsForm.Designer.cs">
       <DependentUpon>ItemsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\OrderDetail.cs" />
+    <Compile Include="Model\OrderMaster.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserOrder.cs">
