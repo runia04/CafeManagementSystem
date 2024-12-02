@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.userIDLabel = new System.Windows.Forms.Label();
+            this.sellerLabel = new System.Windows.Forms.Label();
             this.orderNoLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.itemTableAdapter = new CafeManagementSystem.CafeDBDataSetTableAdapters.ItemTableAdapter();
             this.cafeDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tempOrderTableAdapter = new CafeManagementSystem.CafeDBDataSet1TableAdapters.TempOrderTableAdapter();
-            this.sellerLabel = new System.Windows.Forms.Label();
-            this.userIDLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).BeginInit();
@@ -117,6 +117,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1133, 793);
             this.panel1.TabIndex = 12;
+            // 
+            // userIDLabel
+            // 
+            this.userIDLabel.AutoSize = true;
+            this.userIDLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.userIDLabel.Location = new System.Drawing.Point(8, 257);
+            this.userIDLabel.Name = "userIDLabel";
+            this.userIDLabel.Size = new System.Drawing.Size(119, 37);
+            this.userIDLabel.TabIndex = 26;
+            this.userIDLabel.Text = "UserID";
+            this.userIDLabel.Visible = false;
+            // 
+            // sellerLabel
+            // 
+            this.sellerLabel.AutoSize = true;
+            this.sellerLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sellerLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.sellerLabel.Location = new System.Drawing.Point(17, 202);
+            this.sellerLabel.Name = "sellerLabel";
+            this.sellerLabel.Size = new System.Drawing.Size(107, 37);
+            this.sellerLabel.TabIndex = 25;
+            this.sellerLabel.Text = "Seller";
             // 
             // orderNoLabel
             // 
@@ -257,9 +280,9 @@
             // Delete
             // 
             this.Delete.DataPropertyName = "Delete";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete.HeaderText = "Delete";
             this.Delete.MinimumWidth = 8;
@@ -350,8 +373,8 @@
             // 
             this.priceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
@@ -361,10 +384,10 @@
             // Quantity
             // 
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 8;
             this.Quantity.Name = "Quantity";
@@ -519,29 +542,6 @@
             // tempOrderTableAdapter
             // 
             this.tempOrderTableAdapter.ClearBeforeFill = true;
-            // 
-            // sellerLabel
-            // 
-            this.sellerLabel.AutoSize = true;
-            this.sellerLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellerLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.sellerLabel.Location = new System.Drawing.Point(17, 202);
-            this.sellerLabel.Name = "sellerLabel";
-            this.sellerLabel.Size = new System.Drawing.Size(107, 37);
-            this.sellerLabel.TabIndex = 25;
-            this.sellerLabel.Text = "Seller";
-            // 
-            // userIDLabel
-            // 
-            this.userIDLabel.AutoSize = true;
-            this.userIDLabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIDLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.userIDLabel.Location = new System.Drawing.Point(8, 257);
-            this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(119, 37);
-            this.userIDLabel.TabIndex = 26;
-            this.userIDLabel.Text = "UserID";
-            this.userIDLabel.Visible = false;
             // 
             // UserOrder
             // 

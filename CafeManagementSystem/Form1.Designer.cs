@@ -32,13 +32,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +54,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(384, 342);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label6
             // 
@@ -87,34 +88,29 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(115, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 36);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "MyCafe";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(224, 255);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 29);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Guest";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // label2
+            // loginButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(15, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 27);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "UserName";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(147, 100);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(247, 25);
-            this.maskedTextBox1.TabIndex = 8;
+            this.loginButton.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.loginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.loginButton.Location = new System.Drawing.Point(147, 197);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(247, 40);
+            this.loginButton.TabIndex = 6;
+            this.loginButton.Text = "Login";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // maskedTextBox2
             // 
@@ -134,29 +130,34 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Password";
             // 
-            // loginButton
+            // label2
             // 
-            this.loginButton.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.loginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.loginButton.Location = new System.Drawing.Point(147, 197);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(247, 40);
-            this.loginButton.TabIndex = 6;
-            this.loginButton.Text = "Login";
-            this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(15, 99);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 27);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "UserName";
             // 
-            // label4
+            // maskedTextBox1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(224, 255);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 29);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Guest";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.maskedTextBox1.Location = new System.Drawing.Point(147, 100);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(247, 25);
+            this.maskedTextBox1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(115, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 36);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "MyCafe";
             // 
             // Form1
             // 
@@ -175,6 +176,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -186,16 +188,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

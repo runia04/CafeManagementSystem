@@ -239,7 +239,7 @@ namespace CafeManagementSystem
                 int number = int.Parse(orderNo);
                 number++;
                 int length = number.ToString().Length;
-                for(int i = 0; i < 4 - length; i++)
+                for(int i = 0; i < 5 - length; i++)
                 {
                     newOrderNo = newOrderNo + "" + "0";
                 }
@@ -402,23 +402,25 @@ namespace CafeManagementSystem
                                 orderDetailObj.Total = 0;
                             }
                             data = new Data();
-                             detsilsResult = data.AllFuntion(sql);
+                            sql = "INSERT INTO OrderDetail VALUES('"+orderDetailObj.OrderID + "','"+orderDetailObj.MasterID + "','"+orderDetailObj.ItemID + "','"+orderDetailObj.Category + "','"+orderDetailObj.Quantity + "','"+orderDetailObj.Price + "','"+orderDetailObj.Total + "')";
+                          //   detsilsResult = data.AllFuntion(sql);
                         }
                         if (detsilsResult > 0)
                         {
                             DeleteDataFromTempOrder();
                             LoadOrderDataGV();
                             PopulateOrderDT();
-                           // dateLabel.Text = DateTime.Today.Date.ToString("MM/dd/yy");
+                          
                             CreateOrderNo();
                             OrderButtonEnabled();
-                           // GetUserName();
+                          
                         }
                         else
                         {
                             data = new Data();
                             sql = "DELETE FROM OrderMaster WHERE ID='"+ masterID + "' ";
                             int delete = data.AllFuntion(sql);
+                            MessageBox.Show("Order has not placed");
                         }
                     }
                 }
