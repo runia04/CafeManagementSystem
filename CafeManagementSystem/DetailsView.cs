@@ -78,6 +78,50 @@ namespace CafeManagementSystem
             this.Hide();
         }
 
-        
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
+            e.Graphics.DrawString("========Cafe Software=======", new Font("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(170, 40));
+            e.Graphics.DrawString("======Order Details======",new Font("Arial",17,FontStyle.Bold),Brushes.Black, new Point(170,85));
+            int yPoint = 120;
+            e.Graphics.DrawString("Category", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(10, yPoint));
+
+            e.Graphics.DrawString("Name", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(220, yPoint));
+           e.Graphics.DrawString("Qnt.", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(380, yPoint));
+           e.Graphics.DrawString("Price", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(550, yPoint));
+           e.Graphics.DrawString("Total", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(700, yPoint));
+            
+            try
+            {
+                if (itemDataGridView.Rows.Count > 0)
+                {
+                    for (int i=0;i<itemDataGridView.Rows.Count-1;i++)
+                    {
+                        yPoint += 40;
+                        e.Graphics.DrawString(itemDataGridView.Rows[i].Cells[2].Value.ToString(), new Font("Arial", 11, FontStyle.Regular), Brushes.Black, new Point(10, yPoint));
+                        e.Graphics.DrawString(itemDataGridView.Rows[i].Cells[3].Value.ToString(), new Font("Arial", 11, FontStyle.Regular), Brushes.Black, new Point(220, yPoint));
+                        e.Graphics.DrawString(itemDataGridView.Rows[i].Cells[4].Value.ToString(), new Font("Arial", 11, FontStyle.Regular), Brushes.Black, new Point(380, yPoint));
+                        e.Graphics.DrawString(itemDataGridView.Rows[i].Cells[5].Value.ToString(), new Font("Arial", 11, FontStyle.Regular), Brushes.Black, new Point(550, yPoint));
+                        e.Graphics.DrawString(itemDataGridView.Rows[i].Cells[6].Value.ToString(), new Font("Arial", 11, FontStyle.Regular), Brushes.Black, new Point(700, yPoint));
+                    }
+                    int rowNo = itemDataGridView.Rows.Count;
+                    yPoint += 40;
+
+                    e.Graphics.DrawString("Total ", new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(550, yPoint));
+                    e.Graphics.DrawString(itemDataGridView.Rows[rowNo-1].Cells[6].Value.ToString(), new Font("Arial", 11, FontStyle.Bold), Brushes.Black, new Point(700, yPoint));
+
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+            if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                printDocument1.Print();
+        }
     }
 }

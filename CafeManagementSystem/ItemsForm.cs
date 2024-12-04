@@ -45,12 +45,20 @@ namespace CafeManagementSystem
         private void PopultaeItemNo()
         {
             int itemNo = 0;
-            if (itemsGV.Rows.Count > 1)
+            try
+            {
+                if (itemsGV.Rows.Count > 1)
+                {
+
+                    string sql = "Select Top(1) No From [Item] Order by ID DESC";
+                    itemNo = data.GetIntegerColumnValue(sql);
+                }
+            }
+            catch(Exception ex)
             {
 
-                string sql = "Select Top(1) No From [Item] Order by ID DESC";
-                itemNo = data.GetIntegerColumnValue(sql);
             }
+           
             itemNo++;
             itemNoTextBox.Text = itemNo.ToString();
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsView));
             this.itemDataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
@@ -35,6 +36,9 @@
             this.orderIDlabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateLabel = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +71,7 @@
             this.backButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.backButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.backButton.Location = new System.Drawing.Point(419, 621);
+            this.backButton.Location = new System.Drawing.Point(430, 625);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(165, 47);
             this.backButton.TabIndex = 28;
@@ -115,12 +119,42 @@
             this.dateLabel.TabIndex = 32;
             this.dateLabel.Text = "Date";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printButton
+            // 
+            this.printButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.printButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.printButton.Location = new System.Drawing.Point(152, 625);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(165, 47);
+            this.printButton.TabIndex = 33;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
             // DetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1145, 768);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.orderIDlabel);
@@ -148,5 +182,8 @@
         private System.Windows.Forms.Label orderIDlabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label dateLabel;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button printButton;
     }
 }

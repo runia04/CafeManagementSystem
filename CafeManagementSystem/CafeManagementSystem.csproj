@@ -91,6 +91,12 @@
     <Compile Include="UserOrder.Designer.cs">
       <DependentUpon>UserOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserReport.Designer.cs">
+      <DependentUpon>UserReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </Compile>
     <EmbeddedResource Include="UserOrder.resx">
       <DependentUpon>UserOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserReport.resx">
+      <DependentUpon>UserReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>

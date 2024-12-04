@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewOrderList));
             this.itemDataGridView = new System.Windows.Forms.DataGridView();
             this.Details = new System.Windows.Forms.DataGridViewLinkColumn();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,6 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dateToTimePicker = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printButton = new System.Windows.Forms.Button();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +54,7 @@
             this.itemDataGridView.Name = "itemDataGridView";
             this.itemDataGridView.RowHeadersWidth = 62;
             this.itemDataGridView.RowTemplate.Height = 27;
-            this.itemDataGridView.Size = new System.Drawing.Size(1170, 229);
+            this.itemDataGridView.Size = new System.Drawing.Size(1170, 496);
             this.itemDataGridView.TabIndex = 21;
             this.itemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGridView_CellContentClick);
             // 
@@ -79,10 +83,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(70, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 24);
+            this.label2.Size = new System.Drawing.Size(85, 29);
             this.label2.TabIndex = 22;
             this.label2.Text = "Date : ";
             // 
@@ -90,7 +94,7 @@
             // 
             this.dateFromTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateFromTimePicker.Location = new System.Drawing.Point(176, 117);
-            this.dateFromTimePicker.MaxDate = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
+            this.dateFromTimePicker.MaxDate = new System.DateTime(2032, 1, 31, 0, 0, 0, 0);
             this.dateFromTimePicker.MinDate = new System.DateTime(2024, 11, 1, 0, 0, 0, 0);
             this.dateFromTimePicker.Name = "dateFromTimePicker";
             this.dateFromTimePicker.Size = new System.Drawing.Size(200, 25);
@@ -111,7 +115,7 @@
             // 
             this.dateToTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateToTimePicker.Location = new System.Drawing.Point(493, 113);
-            this.dateToTimePicker.MaxDate = new System.DateTime(2024, 12, 2, 0, 0, 0, 0);
+            this.dateToTimePicker.MaxDate = new System.DateTime(2032, 1, 31, 0, 0, 0, 0);
             this.dateToTimePicker.MinDate = new System.DateTime(2024, 11, 1, 0, 0, 0, 0);
             this.dateToTimePicker.Name = "dateToTimePicker";
             this.dateToTimePicker.Size = new System.Drawing.Size(200, 25);
@@ -132,12 +136,42 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printButton
+            // 
+            this.printButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.printButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.printButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.printButton.Location = new System.Drawing.Point(420, 711);
+            this.printButton.Name = "printButton";
+            this.printButton.Size = new System.Drawing.Size(165, 47);
+            this.printButton.TabIndex = 34;
+            this.printButton.Text = "Print";
+            this.printButton.UseVisualStyleBackColor = false;
+            this.printButton.Click += new System.EventHandler(this.printButton_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // ViewOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1227, 855);
+            this.Controls.Add(this.printButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dateToTimePicker);
             this.Controls.Add(this.label3);
@@ -165,5 +199,8 @@
         private System.Windows.Forms.DateTimePicker dateToTimePicker;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewLinkColumn Details;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
