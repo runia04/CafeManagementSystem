@@ -22,6 +22,19 @@ namespace CafeManagementSystem
         
         public UserOrder()
         {
+            string value = this.Tag.ToString();
+            try
+            {
+                bool isAdmin = bool.Parse(value);
+                if (!isAdmin)
+                {
+                    menuStrip1.Visible = false;
+                }
+            }
+            catch
+            {
+
+            }
             InitializeComponent();
         }
 
@@ -429,6 +442,42 @@ namespace CafeManagementSystem
             {
 
             }
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+
+        }
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemsForm itemsForm = new ItemsForm();
+            itemsForm.Show();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserReport userReport = new UserReport();
+            userReport.Show();
+        }
+
+        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            ViewOrderList viewOrderList = new ViewOrderList();
+            viewOrderList.Show();
         }
     }
 }

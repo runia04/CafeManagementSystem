@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.closeLabel = new System.Windows.Forms.Label();
             this.manageItemsLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
@@ -43,16 +43,24 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
+            this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.MaskedTextBox();
             this.categoryLabel = new System.Windows.Forms.Label();
             this.itemsGV = new System.Windows.Forms.DataGridView();
             this.logoutLabel = new System.Windows.Forms.Label();
             this.ordersButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
-            this.itemNameTextBox = new System.Windows.Forms.TextBox();
-            this.itemPriceTextBox = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGV)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // closeLabel
@@ -211,6 +219,22 @@
             this.panel1.Size = new System.Drawing.Size(1119, 777);
             this.panel1.TabIndex = 12;
             // 
+            // itemPriceTextBox
+            // 
+            this.itemPriceTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemPriceTextBox.Location = new System.Drawing.Point(190, 503);
+            this.itemPriceTextBox.Name = "itemPriceTextBox";
+            this.itemPriceTextBox.Size = new System.Drawing.Size(201, 28);
+            this.itemPriceTextBox.TabIndex = 24;
+            // 
+            // itemNameTextBox
+            // 
+            this.itemNameTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemNameTextBox.Location = new System.Drawing.Point(190, 329);
+            this.itemNameTextBox.Name = "itemNameTextBox";
+            this.itemNameTextBox.Size = new System.Drawing.Size(201, 28);
+            this.itemNameTextBox.TabIndex = 23;
+            // 
             // idTextBox
             // 
             this.idTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,30 +257,30 @@
             // 
             // itemsGV
             // 
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.itemsGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.itemsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.itemsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle2;
             this.itemsGV.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.itemsGV.Location = new System.Drawing.Point(413, 196);
             this.itemsGV.Name = "itemsGV";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.itemsGV.RowHeadersWidth = 62;
             this.itemsGV.RowTemplate.Height = 27;
             this.itemsGV.Size = new System.Drawing.Size(681, 481);
@@ -303,21 +327,60 @@
             this.usersButton.UseVisualStyleBackColor = false;
             this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
-            // itemNameTextBox
+            // menuStrip1
             // 
-            this.itemNameTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemNameTextBox.Location = new System.Drawing.Point(190, 329);
-            this.itemNameTextBox.Name = "itemNameTextBox";
-            this.itemNameTextBox.Size = new System.Drawing.Size(201, 28);
-            this.itemNameTextBox.TabIndex = 23;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem,
+            this.orderToolStripMenuItem,
+            this.itemsToolStripMenuItem,
+            this.reportsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1303, 36);
+            this.menuStrip1.TabIndex = 31;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // itemPriceTextBox
+            // userToolStripMenuItem
             // 
-            this.itemPriceTextBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemPriceTextBox.Location = new System.Drawing.Point(190, 503);
-            this.itemPriceTextBox.Name = "itemPriceTextBox";
-            this.itemPriceTextBox.Size = new System.Drawing.Size(201, 28);
-            this.itemPriceTextBox.TabIndex = 24;
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 30);
+            this.userToolStripMenuItem.Text = "Users";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
+            // orderToolStripMenuItem
+            // 
+            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 30);
+            this.orderToolStripMenuItem.Text = "Orders";
+            // 
+            // itemsToolStripMenuItem
+            // 
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 30);
+            this.itemsToolStripMenuItem.Text = "Items";
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem1,
+            this.orderToolStripMenuItem1});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 30);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // userToolStripMenuItem1
+            // 
+            this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.userToolStripMenuItem1.Text = "User ";
+            // 
+            // orderToolStripMenuItem1
+            // 
+            this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.orderToolStripMenuItem1.Text = "Order";
             // 
             // ItemsForm
             // 
@@ -325,6 +388,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1303, 855);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.usersButton);
             this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.logoutLabel);
@@ -338,6 +402,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemsGV)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -365,5 +431,12 @@
         private System.Windows.Forms.MaskedTextBox idTextBox;
         private System.Windows.Forms.TextBox itemNameTextBox;
         private System.Windows.Forms.TextBox itemPriceTextBox;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem1;
     }
 }

@@ -32,8 +32,8 @@ namespace CafeManagementSystem
             catch(Exception ex) {
 
             }
-            string sql = "SELECT OrderMaster.ID, OrderMaster.OrderID, Item.Category, Item.Name, OrderDetail.Quantity, OrderDetail.Price, OrderDetail.Total, OrderMaster.TotalAmount, OrderMaster.Date ";
-            sql = sql + " " + "FROM    OrderMaster INNER JOIN   OrderDetail ON OrderMaster.ID = OrderDetail.MasterID AND OrderMaster.OrderID = OrderDetail.OrderID INNER JOIN  Item ON OrderDetail.ItemID = Item.Id WHERE OrderMaster.ID='"+id+"'";
+            string sql = "SELECT  OrderMaster.ID, OrderMaster.OrderID,[User].Name AS UserName , Item.Category, Item.Name, OrderDetail.Quantity, OrderDetail.Price, OrderDetail.Total, OrderMaster.TotalAmount, OrderMaster.Date";
+            sql = sql + " " + "FROM     OrderMaster INNER JOIN OrderDetail ON OrderMaster.ID = OrderDetail.MasterID AND OrderMaster.OrderID = OrderDetail.OrderID INNER JOIN   Item ON OrderDetail.ItemID = Item.Id INNER JOIN [User] ON OrderMaster.UserID = [User].Id WHERE OrderMaster.ID='" + id+"'";
             DataSet ds = data.Populate(sql);
             int rowNo = 0;
             decimal totalAmount = 0;
@@ -47,25 +47,19 @@ namespace CafeManagementSystem
                     orderIDlabel.Text = orderID;
                     totalAmount = decimal.Parse(ds.Tables[0].Rows[0]["TotalAmount"].ToString());
                      rowNo = ds.Tables.Count;
-                   
-                  //  ds.Tables[0].Rows[rowNo]["Total"] = totalAmount.ToString();
-
-                   // itemDataGridView.Rows.Add(null, null, null, null, null, null, "Total: ", totalAmount);
                 }
             }
             catch
             {
 
             }
-                    itemDataGridView.DataSource = ds.Tables[0];
-           // itemDataGridView.Rows.Add(null, null, null, null, null, null, "Total: ", totalAmount);
-            // itemDataGridView.AllowUserToAddRows = false;
+            itemDataGridView.DataSource = ds.Tables[0];
             this.itemDataGridView.Columns["ID"].Visible = false;
             this.itemDataGridView.Columns["OrderID"].Visible = false;
             this.itemDataGridView.Columns["TotalAmount"].Visible = false;
             this.itemDataGridView.Columns["Date"].Visible = false;
-            this.itemDataGridView.Rows[rowNo + 1].Cells[5].Value = "Total: "; ;
-            this. itemDataGridView.Rows[rowNo+1].Cells[6].Value = totalAmount.ToString(); ;
+            this.itemDataGridView.Rows[rowNo + 1].Cells[6].Value = "Total: "; ;
+            this. itemDataGridView.Rows[rowNo+1].Cells[7].Value = totalAmount.ToString(); ;
             this.itemDataGridView.Columns["Total"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             this.itemDataGridView.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 

@@ -10,6 +10,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CafeManagementSystem
 {
@@ -39,19 +40,23 @@ namespace CafeManagementSystem
             {
                 if (ds.Tables.Count > 0)
                 {
+                 
+                    decimal sumOfTotal = 0;
                     DataTable dtFirst = new DataTable();
                     dtFirst.Columns.Add("ID");
                     dtFirst.Columns.Add("OrderID");
                     dtFirst.Columns.Add("UserName");
                     dtFirst.Columns.Add("Date");
                     dtFirst.Columns.Add("TotalAmount");
+                    DataRow newRow;
                     for (int i = 0; i < ds.Tables.Count; i++) {
                         int id = int.Parse(ds.Tables[0].Rows[i]["ID"].ToString());
                         string orderID = ds.Tables[0].Rows[i]["OrderID"].ToString();
                         string userName = ds.Tables[0].Rows[i]["UserName"].ToString();
                         DateTime date = DateTime.Parse(ds.Tables[0].Rows[i]["Date"].ToString());
                         decimal total = decimal.Parse(ds.Tables[0].Rows[i]["TotalAmount"].ToString());
-                        DataRow newRow = dtFirst.Rows.Add();
+                        sumOfTotal += total;
+                        newRow = dtFirst.Rows.Add();
                         newRow.SetField("ID", id);
                         newRow.SetField("OrderID", orderID);
                         newRow.SetField("UserName", userName);
@@ -59,12 +64,13 @@ namespace CafeManagementSystem
                         newRow.SetField("TotalAmount",total);
                     }
                     itemDataGridView.DataSource = dtFirst;
+                    totalAmountlabel.Text = sumOfTotal.ToString();
                     itemDataGridView.AllowUserToAddRows = false;
                     this.itemDataGridView.Columns["orderID"].ReadOnly = true;
                     this.itemDataGridView.Columns["UserName"].ReadOnly = true;
                     this.itemDataGridView.Columns["Date"].ReadOnly = true;
                     this.itemDataGridView.Columns["TotalAmount"].ReadOnly = true;
-                 
+                  
                     this.itemDataGridView.Columns["ID"].Visible = false;
                     this.itemDataGridView.Columns["TotalAmount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
                     this.itemDataGridView.Columns["TotalAmount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -142,6 +148,42 @@ namespace CafeManagementSystem
 
             }
 
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+
+        }
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemsForm itemsForm = new ItemsForm();
+            itemsForm.Show();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserReport userReport = new UserReport();
+            userReport.Show();
+        }
+
+        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            ViewOrderList viewOrderList = new ViewOrderList();
+            viewOrderList.Show();
         }
     }
 }

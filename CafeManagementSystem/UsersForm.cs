@@ -57,7 +57,7 @@ namespace CafeManagementSystem
                     return;
                 }
                
-                query = "Insert into [User](Name,Phone,Password,IsLoggedIn)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "','false')";
+                query = "Insert into [User](Name,Phone,Password,IsLoggedIn,IsAdmin)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "','false','"+isAdminCheckBox.Checked+"'))";
             }
             catch (Exception ex)
             {
@@ -98,6 +98,7 @@ namespace CafeManagementSystem
                 userNameTextBox.Text = usersGV.Rows[e.RowIndex].Cells[1].Value.ToString();
                 phoneNoTextBox.Text = usersGV.Rows[e.RowIndex].Cells[2].Value.ToString();
                 passwordTextBox.Text = usersGV.Rows[e.RowIndex].Cells[3].Value.ToString();
+                isAdminCheckBox.Checked = bool.Parse(usersGV.Rows[e.RowIndex].Cells[3].Value.ToString());
             }
             catch
             {
@@ -178,6 +179,53 @@ namespace CafeManagementSystem
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void closeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UsersForm usersForm = new UsersForm();
+            usersForm.Show();
+
+        }
+        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+        }
+
+        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ItemsForm itemsForm = new ItemsForm();
+            itemsForm.Show();
+        }
+
+        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserReport userReport = new UserReport();
+            userReport.Show();
+        }
+
+        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
+            this.Hide();
+            ViewOrderList viewOrderList = new ViewOrderList();
+            viewOrderList.Show();
         }
     }
 }

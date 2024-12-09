@@ -68,13 +68,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.closeLabel = new System.Windows.Forms.Label();
             this.logoutLabel = new System.Windows.Forms.Label();
-            this.ordersButton = new System.Windows.Forms.Button();
-            this.usersButton = new System.Windows.Forms.Button();
             this.itemTableAdapter = new CafeManagementSystem.CafeDBDataSetTableAdapters.ItemTableAdapter();
             this.cafeDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tempOrderTableAdapter = new CafeManagementSystem.CafeDBDataSet1TableAdapters.TempOrderTableAdapter();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tempOrderBindingSource)).BeginInit();
@@ -83,6 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSetBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label6
@@ -113,9 +118,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.categoryComboBox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(135, 36);
+            this.panel1.Location = new System.Drawing.Point(135, 49);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1133, 793);
+            this.panel1.Size = new System.Drawing.Size(1133, 780);
             this.panel1.TabIndex = 12;
             // 
             // userIDLabel
@@ -478,18 +483,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Place Order";
             // 
-            // closeLabel
-            // 
-            this.closeLabel.AutoSize = true;
-            this.closeLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.closeLabel.Location = new System.Drawing.Point(1216, 6);
-            this.closeLabel.Name = "closeLabel";
-            this.closeLabel.Size = new System.Drawing.Size(27, 27);
-            this.closeLabel.TabIndex = 13;
-            this.closeLabel.Text = "X";
-            this.closeLabel.Click += new System.EventHandler(this.closeLabel_Click);
-            // 
             // logoutLabel
             // 
             this.logoutLabel.AutoSize = true;
@@ -501,34 +494,6 @@
             this.logoutLabel.TabIndex = 16;
             this.logoutLabel.Text = "LogOut";
             this.logoutLabel.Click += new System.EventHandler(this.logoutLabel_Click);
-            // 
-            // ordersButton
-            // 
-            this.ordersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ordersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ordersButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ordersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ordersButton.Location = new System.Drawing.Point(8, 160);
-            this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(117, 47);
-            this.ordersButton.TabIndex = 16;
-            this.ordersButton.Text = "Orders";
-            this.ordersButton.UseVisualStyleBackColor = false;
-            this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
-            // 
-            // usersButton
-            // 
-            this.usersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.usersButton.Location = new System.Drawing.Point(8, 238);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Size = new System.Drawing.Size(117, 47);
-            this.usersButton.TabIndex = 17;
-            this.usersButton.Text = "Users";
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // itemTableAdapter
             // 
@@ -543,16 +508,69 @@
             // 
             this.tempOrderTableAdapter.ClearBeforeFill = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem,
+            this.orderToolStripMenuItem,
+            this.itemsToolStripMenuItem,
+            this.reportsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1291, 36);
+            this.menuStrip1.TabIndex = 32;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 30);
+            this.userToolStripMenuItem.Text = "Users";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            // 
+            // orderToolStripMenuItem
+            // 
+            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 30);
+            this.orderToolStripMenuItem.Text = "Orders";
+            // 
+            // itemsToolStripMenuItem
+            // 
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 30);
+            this.itemsToolStripMenuItem.Text = "Items";
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem1,
+            this.orderToolStripMenuItem1});
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 30);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            // 
+            // userToolStripMenuItem1
+            // 
+            this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.userToolStripMenuItem1.Text = "User ";
+            // 
+            // orderToolStripMenuItem1
+            // 
+            this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.orderToolStripMenuItem1.Text = "Order";
+            // 
             // UserOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1291, 855);
-            this.Controls.Add(this.usersButton);
-            this.Controls.Add(this.ordersButton);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.logoutLabel);
-            this.Controls.Add(this.closeLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -569,6 +587,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cafeDBDataSetBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,10 +604,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label closeLabel;
         private System.Windows.Forms.Label logoutLabel;
-        private System.Windows.Forms.Button ordersButton;
-        private System.Windows.Forms.Button usersButton;
         private System.Windows.Forms.DataGridView itemDataGridView;
         private CafeDBDataSet cafeDBDataSet;
         private System.Windows.Forms.BindingSource itemBindingSource;
@@ -619,5 +636,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Label sellerLabel;
         private System.Windows.Forms.Label userIDLabel;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem1;
     }
 }
