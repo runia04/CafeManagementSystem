@@ -22,20 +22,11 @@ namespace CafeManagementSystem
         
         public UserOrder()
         {
-            string value = this.Tag.ToString();
-            try
-            {
-                bool isAdmin = bool.Parse(value);
-                if (!isAdmin)
-                {
-                    menuStrip1.Visible = false;
-                }
-            }
-            catch
-            {
-
-            }
+           
             InitializeComponent();
+           
+           
+           
         }
 
         private void closeLabel_Click(object sender, EventArgs e)
@@ -197,7 +188,20 @@ namespace CafeManagementSystem
             this.tempOrderTableAdapter.Fill(this.cafeDBDataSet1.TempOrder);
             // TODO: This line of code loads data into the 'cafeDBDataSet.Item' table. You can move, or remove it, as needed.
             this.itemTableAdapter.Fill(this.cafeDBDataSet.Item);
-          
+            try
+            {
+                string value = this.Tag.ToString();
+
+                bool isAdmin = bool.Parse(value);
+                if (!isAdmin)
+                {
+                    menuStrip1.Visible = false;
+                }
+            }
+            catch
+            {
+
+            }
             DeleteDataFromTempOrder();
             LoadOrderDataGV();
             PopulateOrderDT();
@@ -296,8 +300,8 @@ namespace CafeManagementSystem
         private void PopulateOrderDT()
         {
            
-           
-           string query = "select * from [item]";
+
+            string query = "select * from [item]";
             if (categoryComboBox.SelectedIndex != -1)
             {
                 query = query+ " Where Category='" + categoryComboBox.SelectedItem.ToString() + "'";
@@ -416,10 +420,11 @@ namespace CafeManagementSystem
                             }
                             data = new Data();
                             sql = "INSERT INTO OrderDetail VALUES('"+orderDetailObj.OrderID + "','"+orderDetailObj.MasterID + "','"+orderDetailObj.ItemID + "','"+orderDetailObj.Category + "','"+orderDetailObj.Quantity + "','"+orderDetailObj.Price + "','"+orderDetailObj.Total + "')";
-                          //   detsilsResult = data.AllFuntion(sql);
+                            detsilsResult = data.AllFuntion(sql);
                         }
                         if (detsilsResult > 0)
                         {
+                            MessageBox.Show("Order has been placed");
                             DeleteDataFromTempOrder();
                             LoadOrderDataGV();
                             PopulateOrderDT();
@@ -430,6 +435,7 @@ namespace CafeManagementSystem
                         }
                         else
                         {
+                        
                             data = new Data();
                             sql = "DELETE FROM OrderMaster WHERE ID='"+ masterID + "' ";
                             int delete = data.AllFuntion(sql);
@@ -444,13 +450,15 @@ namespace CafeManagementSystem
             }
         }
 
-        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+     
+
+        private void userToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             UsersForm usersForm = new UsersForm();
             usersForm.Show();
-
         }
+
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -474,7 +482,6 @@ namespace CafeManagementSystem
 
         private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();

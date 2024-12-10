@@ -209,28 +209,32 @@ namespace CafeManagementSystem
             usersForm.Show();
 
         }
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+     
+        
+    
+
+        private void orderToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             UserOrder userOrder = new UserOrder();
             userOrder.Show();
         }
 
-        private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemsToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             ItemsForm itemsForm = new ItemsForm();
             itemsForm.Show();
         }
 
-        private void userToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void userToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
             this.Hide();
             UserReport userReport = new UserReport();
             userReport.Show();
         }
 
-        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void orderToolStripMenuItem1_Click_1(object sender, EventArgs e)
         {
 
             this.Hide();

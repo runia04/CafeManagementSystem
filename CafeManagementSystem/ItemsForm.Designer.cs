@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.closeLabel = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.manageItemsLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.itemNoTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -49,8 +48,6 @@
             this.categoryLabel = new System.Windows.Forms.Label();
             this.itemsGV = new System.Windows.Forms.DataGridView();
             this.logoutLabel = new System.Windows.Forms.Label();
-            this.ordersButton = new System.Windows.Forms.Button();
-            this.usersButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,18 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.itemsGV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // closeLabel
-            // 
-            this.closeLabel.AutoSize = true;
-            this.closeLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.closeLabel.Location = new System.Drawing.Point(1251, 17);
-            this.closeLabel.Name = "closeLabel";
-            this.closeLabel.Size = new System.Drawing.Size(27, 27);
-            this.closeLabel.TabIndex = 16;
-            this.closeLabel.Text = "X";
-            this.closeLabel.Click += new System.EventHandler(this.closeLabel_Click);
             // 
             // manageItemsLabel
             // 
@@ -257,30 +242,30 @@
             // 
             // itemsGV
             // 
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.Color.White;
+            this.itemsGV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.itemsGV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.itemsGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.itemsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.itemsGV.DefaultCellStyle = dataGridViewCellStyle35;
             this.itemsGV.GridColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.itemsGV.Location = new System.Drawing.Point(413, 196);
             this.itemsGV.Name = "itemsGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Black", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.itemsGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.itemsGV.RowHeadersWidth = 62;
             this.itemsGV.RowTemplate.Height = 27;
             this.itemsGV.Size = new System.Drawing.Size(681, 481);
@@ -299,37 +284,10 @@
             this.logoutLabel.Text = "LogOut";
             this.logoutLabel.Click += new System.EventHandler(this.logoutLabel_Click);
             // 
-            // ordersButton
-            // 
-            this.ordersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ordersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ordersButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ordersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ordersButton.Location = new System.Drawing.Point(36, 161);
-            this.ordersButton.Name = "ordersButton";
-            this.ordersButton.Size = new System.Drawing.Size(94, 47);
-            this.ordersButton.TabIndex = 21;
-            this.ordersButton.Text = "Orders";
-            this.ordersButton.UseVisualStyleBackColor = false;
-            this.ordersButton.Click += new System.EventHandler(this.ordersButton_Click);
-            // 
-            // usersButton
-            // 
-            this.usersButton.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.usersButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usersButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.usersButton.Location = new System.Drawing.Point(36, 272);
-            this.usersButton.Name = "usersButton";
-            this.usersButton.Size = new System.Drawing.Size(94, 47);
-            this.usersButton.TabIndex = 22;
-            this.usersButton.Text = "Users";
-            this.usersButton.UseVisualStyleBackColor = false;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
@@ -339,27 +297,30 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1303, 36);
-            this.menuStrip1.TabIndex = 31;
+            this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.UseWaitCursor = true;
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 30);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
             this.userToolStripMenuItem.Text = "Users";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click_1);
             // 
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 30);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 29);
             this.orderToolStripMenuItem.Text = "Orders";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click_1);
             // 
             // itemsToolStripMenuItem
             // 
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 30);
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
             this.itemsToolStripMenuItem.Text = "Items";
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -367,20 +328,22 @@
             this.userToolStripMenuItem1,
             this.orderToolStripMenuItem1});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 30);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // userToolStripMenuItem1
             // 
             this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
-            this.userToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.userToolStripMenuItem1.Text = "User ";
+            this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click);
             // 
             // orderToolStripMenuItem1
             // 
             this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
-            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.orderToolStripMenuItem1.Text = "Order";
+            this.orderToolStripMenuItem1.Click += new System.EventHandler(this.orderToolStripMenuItem1_Click);
             // 
             // ItemsForm
             // 
@@ -389,11 +352,8 @@
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1303, 855);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.usersButton);
-            this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.logoutLabel);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.closeLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ItemsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -410,8 +370,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label closeLabel;
         private System.Windows.Forms.Label manageItemsLabel;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.MaskedTextBox itemNoTextBox;
@@ -424,8 +382,6 @@
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label logoutLabel;
-        private System.Windows.Forms.Button ordersButton;
-        private System.Windows.Forms.Button usersButton;
         private System.Windows.Forms.DataGridView itemsGV;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.MaskedTextBox idTextBox;

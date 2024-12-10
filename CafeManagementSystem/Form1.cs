@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,6 +36,28 @@ namespace CafeManagementSystem
             //GuestOrder guest = new GuestOrder();
             //guest.Show();
         }
+        static string Encrypt(string value)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(value);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    value = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return value;
+           
+        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -46,16 +70,29 @@ namespace CafeManagementSystem
                 string userName = userNameTextBox.Text;
                 ;
                 string password = passwordTextBox.Text;
-                string query = "Select * From [User] Where Name='" + userName + "'AND  Password='" + password + "'";
+
+                string encryptValue = Encrypt(password);
+                string query = "Select * From [User] Where Name='" + userName + "'AND  Password='" + encryptValue + "'";
                DataSet ds = datObj.Populate(query);
                 if (ds.Tables.Count > 0)
                 {
-                    bool  isAdmin = bool.Parse(ds.Tables[0].Rows[0]["IsAdmin"].ToString());
-                    
-                    UserOrder userOrderObj = new UserOrder();
-                    userOrderObj.Tag =isAdmin;
-                    this.Hide();
-                    userOrderObj.Show();
+                    bool isAdmin = false;
+                    try
+                    {
+                        int id = int.Parse(ds.Tables[0].Rows[0]["Id"].ToString());
+                        string sqlQuery = "UPDATE [User]Set IsLoggedIn='true' WHERE Id='"+id+"' ";
+                        int rowNo = datObj.AllFuntion(sqlQuery);
+                        isAdmin = bool.Parse(ds.Tables[0].Rows[0]["IsAdmin"].ToString());
+
+                        UserOrder userOrderObj = new UserOrder();
+                        userOrderObj.Tag = isAdmin;
+                        this.Hide();
+                        userOrderObj.Show();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("User not found.");
+                    }
                     
                 }
                 else
@@ -75,7 +112,16 @@ namespace CafeManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            try
+            {
+                string sqlQuery = "UPDATE [User]Set IsLoggedIn='false' ";
+                int rowNo = datObj.AllFuntion(sqlQuery);
+            }
+            catch
+            {
 
+            }
+            passwordTextBox.PasswordChar = '*';
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.userIDLabel = new System.Windows.Forms.Label();
@@ -118,9 +118,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.categoryComboBox);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(135, 49);
+            this.panel1.Location = new System.Drawing.Point(135, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1133, 780);
+            this.panel1.Size = new System.Drawing.Size(1133, 777);
             this.panel1.TabIndex = 12;
             // 
             // userIDLabel
@@ -184,7 +184,7 @@
             this.orderAmountlabel.AutoSize = true;
             this.orderAmountlabel.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderAmountlabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.orderAmountlabel.Location = new System.Drawing.Point(883, 736);
+            this.orderAmountlabel.Location = new System.Drawing.Point(884, 714);
             this.orderAmountlabel.Name = "orderAmountlabel";
             this.orderAmountlabel.Size = new System.Drawing.Size(78, 36);
             this.orderAmountlabel.TabIndex = 21;
@@ -206,7 +206,7 @@
             this.isUserDataGridViewCheckBoxColumn,
             this.Delete});
             this.orderDataGridView.DataSource = this.tempOrderBindingSource;
-            this.orderDataGridView.Location = new System.Drawing.Point(165, 464);
+            this.orderDataGridView.Location = new System.Drawing.Point(152, 437);
             this.orderDataGridView.Name = "orderDataGridView";
             this.orderDataGridView.RowHeadersWidth = 62;
             this.orderDataGridView.RowTemplate.Height = 27;
@@ -285,9 +285,9 @@
             // Delete
             // 
             this.Delete.DataPropertyName = "Delete";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Delete.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Delete.DefaultCellStyle = dataGridViewCellStyle13;
             this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Delete.HeaderText = "Delete";
             this.Delete.MinimumWidth = 8;
@@ -378,8 +378,8 @@
             // 
             this.priceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
@@ -389,10 +389,10 @@
             // Quantity
             // 
             this.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            this.Quantity.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.White;
+            this.Quantity.DefaultCellStyle = dataGridViewCellStyle15;
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.MinimumWidth = 8;
             this.Quantity.Name = "Quantity";
@@ -414,7 +414,7 @@
             this.orderButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.orderButton.Location = new System.Drawing.Point(343, 727);
+            this.orderButton.Location = new System.Drawing.Point(323, 702);
             this.orderButton.Name = "orderButton";
             this.orderButton.Size = new System.Drawing.Size(256, 45);
             this.orderButton.TabIndex = 14;
@@ -427,7 +427,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(551, 389);
+            this.label3.Location = new System.Drawing.Point(532, 368);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 37);
             this.label3.TabIndex = 13;
@@ -439,7 +439,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(312, 389);
+            this.button1.Location = new System.Drawing.Point(303, 371);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 47);
             this.button1.TabIndex = 12;
@@ -452,7 +452,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(605, 735);
+            this.label2.Location = new System.Drawing.Point(603, 714);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(262, 36);
             this.label2.TabIndex = 11;
@@ -519,28 +519,30 @@
             this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1291, 36);
-            this.menuStrip1.TabIndex = 32;
+            this.menuStrip1.Size = new System.Drawing.Size(1291, 33);
+            this.menuStrip1.TabIndex = 34;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 30);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
             this.userToolStripMenuItem.Text = "Users";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click_1);
             // 
             // orderToolStripMenuItem
             // 
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 30);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 29);
             this.orderToolStripMenuItem.Text = "Orders";
+            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // itemsToolStripMenuItem
             // 
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 30);
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
             this.itemsToolStripMenuItem.Text = "Items";
+            this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click);
             // 
             // reportsToolStripMenuItem
             // 
@@ -548,27 +550,29 @@
             this.userToolStripMenuItem1,
             this.orderToolStripMenuItem1});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 30);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // userToolStripMenuItem1
             // 
             this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
-            this.userToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.userToolStripMenuItem1.Text = "User ";
+            this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click);
             // 
             // orderToolStripMenuItem1
             // 
             this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
-            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.orderToolStripMenuItem1.Text = "Order";
+            this.orderToolStripMenuItem1.Click += new System.EventHandler(this.orderToolStripMenuItem1_Click);
             // 
             // UserOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1291, 855);
+            this.ClientSize = new System.Drawing.Size(1291, 867);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.logoutLabel);
             this.Controls.Add(this.panel1);

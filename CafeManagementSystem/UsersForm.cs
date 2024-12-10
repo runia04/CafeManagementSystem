@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CafeManagementSystem.BLL;
+using System.Security.Cryptography;
+using System.IO;
 namespace CafeManagementSystem
 {
     public partial class UsersForm : Form
@@ -45,7 +47,29 @@ namespace CafeManagementSystem
             Form1 form = new Form1();
             form.Show();
         }
-
+       
+        static string Encrypt(string value)
+        {
+            string EncryptionKey = "MAKV2SPBNI99212";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(value);
+            using (Aes encryptor = Aes.Create())
+            {
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
+                    }
+                    value = Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            return value;
+           
+        }
         private void addButton_Click(object sender, EventArgs e)
         {
             string query = "";
@@ -56,8 +80,9 @@ namespace CafeManagementSystem
                     MessageBox.Show("Fillup all the fields.");
                     return;
                 }
-               
-                query = "Insert into [User](Name,Phone,Password,IsLoggedIn,IsAdmin)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + passwordTextBox.Text + "','false','"+isAdminCheckBox.Checked+"'))";
+                string pass = passwordTextBox.Text;
+                string password = Encrypt(pass);
+                query = "Insert into [User](Name,Phone,Password,IsLoggedIn,IsAdmin)VALUES('" + userNameTextBox.Text + "','" + phoneNoTextBox.Text + "','" + password + "','false','"+isAdminCheckBox.Checked+"')";
             }
             catch (Exception ex)
             {
@@ -68,6 +93,11 @@ namespace CafeManagementSystem
             if (rowNo > 0)
             {
                 MessageBox.Show("User successfully created.");
+                idTextBox.Text = "";
+                userNameTextBox.Text = "";
+                phoneNoTextBox.Text = "";
+                passwordTextBox.Text = "";
+                isAdminCheckBox.Checked = false;
                 populate();
             }
             else
@@ -86,6 +116,7 @@ namespace CafeManagementSystem
 
         private void UsersForm_Load(object sender, EventArgs e)
         {
+            passwordTextBox.PasswordChar = '*';
             populate();
 
         }
@@ -98,7 +129,9 @@ namespace CafeManagementSystem
                 userNameTextBox.Text = usersGV.Rows[e.RowIndex].Cells[1].Value.ToString();
                 phoneNoTextBox.Text = usersGV.Rows[e.RowIndex].Cells[2].Value.ToString();
                 passwordTextBox.Text = usersGV.Rows[e.RowIndex].Cells[3].Value.ToString();
-                isAdminCheckBox.Checked = bool.Parse(usersGV.Rows[e.RowIndex].Cells[3].Value.ToString());
+                isAdminCheckBox.Checked = bool.Parse(usersGV.Rows[e.RowIndex].Cells[5].Value.ToString());
+                this.usersGV.Columns["IsLoggedIn"].Visible = false;
+                this.usersGV.Columns["Password"].Visible = false;
             }
             catch
             {
@@ -129,6 +162,7 @@ namespace CafeManagementSystem
                     userNameTextBox.Text = "";
                     phoneNoTextBox.Text = "";
                     passwordTextBox.Text = "";
+                    isAdminCheckBox.Checked = false;
                     populate();
                 }
                 else
@@ -157,15 +191,19 @@ namespace CafeManagementSystem
             {
                 try
                 {
-                    
-
-                    string query = "Update [User] Set Name='" + userNameTextBox.Text + "',Phone='" + phoneNoTextBox.Text + "',Password='" + passwordTextBox.Text + "' Where Id='" + id + "'";
+                    string pass = passwordTextBox.Text;
+                    string password = Encrypt(pass);
+                    string query = "Update [User] Set Name='" + userNameTextBox.Text + "',Phone='" + phoneNoTextBox.Text + "',Password='" + password + "',IsAdmin='" + isAdminCheckBox.Checked + "' Where Id='" + id + "'";
                     int rowNo = data.AllFuntion(query);
                     if (rowNo > 0)
                     {
                         MessageBox.Show("User updated successfully.");
 
-
+                        idTextBox.Text = "";
+                        userNameTextBox.Text = "";
+                        phoneNoTextBox.Text = "";
+                        passwordTextBox.Text = "";
+                        isAdminCheckBox.Checked = false;
                         populate();
                     }
                     else
@@ -199,6 +237,7 @@ namespace CafeManagementSystem
             usersForm.Show();
 
         }
+
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -222,10 +261,11 @@ namespace CafeManagementSystem
 
         private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
         }
+
+
     }
 }

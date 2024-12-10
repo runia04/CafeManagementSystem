@@ -150,18 +150,22 @@ namespace CafeManagementSystem
 
         }
 
+      
+
+       
+
+        private void orderToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserOrder userOrder = new UserOrder();
+            userOrder.Show();
+        }
+
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             UsersForm usersForm = new UsersForm();
             usersForm.Show();
-
-        }
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            UserOrder userOrder = new UserOrder();
-            userOrder.Show();
         }
 
         private void itemsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,7 +184,6 @@ namespace CafeManagementSystem
 
         private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
