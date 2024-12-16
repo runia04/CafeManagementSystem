@@ -1,5 +1,6 @@
 ﻿using CafeManagementSystem.BLL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -112,9 +113,27 @@ namespace CafeManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            #region check admin exist;if admin not exit creat admin
+            string sqlQuery = "";
             try
             {
-                string sqlQuery = "UPDATE [User]Set IsLoggedIn='false' ";
+                 sqlQuery = "Select * From [User] Where Name='admin'";
+                DataSet ds = datObj.Populate(sqlQuery);
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    string password= Encrypt("1234");
+                    sqlQuery = "Insert into [User](Name,Phone,Password,IsLoggedIn,IsAdmin)VALUES('admin','','" + password + "','false','true')";
+                    int rowNo = datObj.AllFuntion(sqlQuery);
+                }
+            }
+            catch
+            {
+
+            }
+        #endregion
+            try
+            {
+                 sqlQuery = "UPDATE [User]Set IsLoggedIn='false' ";
                 int rowNo = datObj.AllFuntion(sqlQuery);
             }
             catch

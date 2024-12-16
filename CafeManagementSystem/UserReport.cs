@@ -105,19 +105,28 @@ namespace CafeManagementSystem
             }
             DataSet ds = data.Populate(sqlQuery);
             itemDataGridView.DataSource = ds.Tables[0];
+            itemDataGridView.AllowUserToAddRows = false;
             try
             {
                 if (itemDataGridView.Rows.Count > 0)
                 {
+                    int rowCount = itemDataGridView.Rows.Count;
                     decimal sumOfTotal = 0;
-                    for(int i = 0; i < itemDataGridView.Rows.Count-1; i++)
+                    try
                     {
-                        string value = itemDataGridView.Rows[i].Cells[5].Value.ToString();
-                        sumOfTotal += decimal.Parse(value);
+                        for (int i = 0; i < rowCount ; i++)
+                        {
+                            string value = itemDataGridView.Rows[i].Cells[5].Value.ToString();
+                            sumOfTotal += decimal.Parse(value);
+                        }
                     }
-                    totalAmountlabel.Text = sumOfTotal.ToString();
+                    catch
+                    {
+
+                    }
+                    totalAmountlabel.Text = "Total Amount: ¥"+""+ sumOfTotal.ToString();
                     int count = itemDataGridView.Rows.Count;
-                    itemDataGridView.AllowUserToAddRows = false;
+                   
                     this.itemDataGridView.Columns["UserID"].Visible = false;
                     this.itemDataGridView.Columns["IsGuest"].Visible = false;
                     this.itemDataGridView.Columns["ID"].Visible = false;
@@ -143,9 +152,17 @@ namespace CafeManagementSystem
             try
             {
                 int id = int.Parse(itemDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString());
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Id");
+                dt.Columns.Add("PageName");
+                DataRow dr = dt.NewRow();
+                dr["Id"] = id;
+                dr["PageName"] = "UserReport";
+                dt.Rows.Add(dr);
 
                 DetailsView detailsView = new DetailsView();
-                detailsView.Tag = id;
+                detailsView.Tag = dt;
+                
                 detailsView.Show();
                 this.Hide();
 
@@ -240,6 +257,13 @@ namespace CafeManagementSystem
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }

@@ -22,14 +22,26 @@ namespace CafeManagementSystem
 
         private void DetailsView_Load(object sender, EventArgs e)
         {
-            string value = this.Tag.ToString();
+           
+            DataTable newDT= (DataTable)(this.Tag);
             int id = 0;
+            string  pageName = "";
             try
             {
-                id = int.Parse(value);
-                
+                id = int.Parse(newDT.Rows[0]["Id"].ToString());
+                idlabel.Text = id.ToString();
             }
-            catch(Exception ex) {
+            catch
+            {
+
+            }
+            try
+            {
+                pageName = newDT.Rows[0]["PageName"].ToString();
+                pageNamelabel.Text = pageName;
+            }
+            catch
+            {
 
             }
             string sql = "SELECT  OrderMaster.ID, OrderMaster.OrderID,[User].Name AS UserName , Item.Category, Item.Name, OrderDetail.Quantity, OrderDetail.Price, OrderDetail.Total, OrderMaster.TotalAmount, OrderMaster.Date";
@@ -39,14 +51,14 @@ namespace CafeManagementSystem
             decimal totalAmount = 0;
             try
             {
-                if (ds.Tables.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
                     DateTime date = DateTime.Parse(ds.Tables[0].Rows[0]["Date"].ToString());
                     string orderID = ds.Tables[0].Rows[0]["OrderID"].ToString();
                     dateLabel.Text = date.ToString("MM/dd/yy");
                     orderIDlabel.Text = orderID;
                     totalAmount = decimal.Parse(ds.Tables[0].Rows[0]["TotalAmount"].ToString());
-                     rowNo = ds.Tables.Count;
+                    rowNo = ds.Tables.Count;
                 }
             }
             catch
@@ -54,21 +66,31 @@ namespace CafeManagementSystem
 
             }
             itemDataGridView.DataSource = ds.Tables[0];
+            itemDataGridView.AllowUserToAddRows = false;
             this.itemDataGridView.Columns["ID"].Visible = false;
             this.itemDataGridView.Columns["OrderID"].Visible = false;
             this.itemDataGridView.Columns["TotalAmount"].Visible = false;
             this.itemDataGridView.Columns["Date"].Visible = false;
-            this.itemDataGridView.Rows[rowNo + 1].Cells[6].Value = "Total: "; ;
-            this. itemDataGridView.Rows[rowNo+1].Cells[7].Value = totalAmount.ToString(); ;
-            this.itemDataGridView.Columns["Total"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            this.itemDataGridView.Columns["Total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            totalAmountlabel.Text = "¥"+""+ totalAmount.ToString();
+
+
 
         }
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            ViewOrderList viewOrderList = new ViewOrderList();
-            viewOrderList.Show();
+          string pageName=  pageNamelabel.Text;
+            if (pageName == "ViewOrderList")
+            {
+                ViewOrderList viewOrderList = new ViewOrderList();
+                viewOrderList.Show();
+            }
+            else
+            {
+                UserReport userReport = new UserReport();
+                userReport.Show();
+            }
+            
             this.Hide();
         }
 

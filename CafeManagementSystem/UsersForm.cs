@@ -27,6 +27,7 @@ namespace CafeManagementSystem
             DataSet ds = data.Populate(query);
             usersGV.DataSource = ds.Tables[0];
             this.usersGV.Columns["Id"].Visible = false;
+            this.usersGV.Columns["Password"].Visible = false;
         }
         private void orderButton_Click(object sender, EventArgs e)
         {
@@ -266,6 +267,11 @@ namespace CafeManagementSystem
             viewOrderList.Show();
         }
 
-
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
     }
 }

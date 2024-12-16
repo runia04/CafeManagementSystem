@@ -39,6 +39,10 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printButton = new System.Windows.Forms.Button();
+            this.pageNamelabel = new System.Windows.Forms.Label();
+            this.idlabel = new System.Windows.Forms.Label();
+            this.totalAmountlabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +51,7 @@
             this.itemDataGridView.AllowUserToOrderColumns = true;
             this.itemDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemDataGridView.Location = new System.Drawing.Point(24, 169);
+            this.itemDataGridView.Location = new System.Drawing.Point(24, 204);
             this.itemDataGridView.Name = "itemDataGridView";
             this.itemDataGridView.RowHeadersWidth = 62;
             this.itemDataGridView.RowTemplate.Height = 27;
@@ -148,12 +152,58 @@
             this.printButton.UseVisualStyleBackColor = false;
             this.printButton.Click += new System.EventHandler(this.printButton_Click);
             // 
+            // pageNamelabel
+            // 
+            this.pageNamelabel.AutoSize = true;
+            this.pageNamelabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageNamelabel.Location = new System.Drawing.Point(881, 137);
+            this.pageNamelabel.Name = "pageNamelabel";
+            this.pageNamelabel.Size = new System.Drawing.Size(134, 29);
+            this.pageNamelabel.TabIndex = 35;
+            this.pageNamelabel.Text = "PageName";
+            this.pageNamelabel.Visible = false;
+            // 
+            // idlabel
+            // 
+            this.idlabel.AutoSize = true;
+            this.idlabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idlabel.Location = new System.Drawing.Point(881, 83);
+            this.idlabel.Name = "idlabel";
+            this.idlabel.Size = new System.Drawing.Size(44, 29);
+            this.idlabel.TabIndex = 34;
+            this.idlabel.Text = "ID ";
+            this.idlabel.Visible = false;
+            // 
+            // totalAmountlabel
+            // 
+            this.totalAmountlabel.AutoSize = true;
+            this.totalAmountlabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAmountlabel.Location = new System.Drawing.Point(215, 162);
+            this.totalAmountlabel.Name = "totalAmountlabel";
+            this.totalAmountlabel.Size = new System.Drawing.Size(58, 27);
+            this.totalAmountlabel.TabIndex = 38;
+            this.totalAmountlabel.Text = "0.00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(35, 160);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(222, 29);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Total Amount : \"¥\"";
+            // 
             // DetailsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1145, 768);
+            this.Controls.Add(this.totalAmountlabel);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.pageNamelabel);
+            this.Controls.Add(this.idlabel);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.label3);
@@ -185,5 +235,9 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button printButton;
+        private System.Windows.Forms.Label pageNamelabel;
+        private System.Windows.Forms.Label idlabel;
+        private System.Windows.Forms.Label totalAmountlabel;
+        private System.Windows.Forms.Label label4;
     }
 }

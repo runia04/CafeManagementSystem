@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserReport));
             this.userAndDateWiseButton = new System.Windows.Forms.Button();
             this.dateToTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -44,7 +44,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.totalAmountlabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.printButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +52,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.orderToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.itemDataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 158);
+            this.label2.Location = new System.Drawing.Point(51, 158);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 29);
@@ -133,7 +133,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 113);
+            this.label4.Location = new System.Drawing.Point(51, 111);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 29);
@@ -144,7 +144,7 @@
             // 
             this.userComboBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userComboBox.FormattingEnabled = true;
-            this.userComboBox.Location = new System.Drawing.Point(155, 112);
+            this.userComboBox.Location = new System.Drawing.Point(179, 105);
             this.userComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.userComboBox.Name = "userComboBox";
             this.userComboBox.Size = new System.Drawing.Size(119, 35);
@@ -158,7 +158,7 @@
             this.userWiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userWiseButton.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userWiseButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.userWiseButton.Location = new System.Drawing.Point(320, 100);
+            this.userWiseButton.Location = new System.Drawing.Point(382, 111);
             this.userWiseButton.Margin = new System.Windows.Forms.Padding(2);
             this.userWiseButton.Name = "userWiseButton";
             this.userWiseButton.Size = new System.Drawing.Size(254, 31);
@@ -174,20 +174,20 @@
             this.itemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.itemDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Details});
-            this.itemDataGridView.Location = new System.Drawing.Point(83, 254);
+            this.itemDataGridView.Location = new System.Drawing.Point(56, 254);
             this.itemDataGridView.Name = "itemDataGridView";
             this.itemDataGridView.RowHeadersWidth = 62;
             this.itemDataGridView.RowTemplate.Height = 27;
-            this.itemDataGridView.Size = new System.Drawing.Size(679, 362);
+            this.itemDataGridView.Size = new System.Drawing.Size(739, 362);
             this.itemDataGridView.TabIndex = 38;
             this.itemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemDataGridView_CellContentClick);
             // 
             // Details
             // 
             this.Details.ActiveLinkColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.Details.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.Details.DefaultCellStyle = dataGridViewCellStyle7;
             this.Details.HeaderText = "Details";
             this.Details.LinkColor = System.Drawing.Color.Maroon;
             this.Details.MinimumWidth = 8;
@@ -214,22 +214,12 @@
             // totalAmountlabel
             // 
             this.totalAmountlabel.AutoSize = true;
-            this.totalAmountlabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAmountlabel.Location = new System.Drawing.Point(259, 202);
+            this.totalAmountlabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalAmountlabel.Location = new System.Drawing.Point(51, 207);
             this.totalAmountlabel.Name = "totalAmountlabel";
-            this.totalAmountlabel.Size = new System.Drawing.Size(58, 27);
+            this.totalAmountlabel.Size = new System.Drawing.Size(173, 29);
             this.totalAmountlabel.TabIndex = 40;
-            this.totalAmountlabel.Text = "0.00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 200);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(187, 29);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Total Amount : ";
+            this.totalAmountlabel.Text = "Total Amount:";
             // 
             // printButton
             // 
@@ -247,37 +237,42 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
             this.orderToolStripMenuItem,
             this.itemsToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.reportsToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(894, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(894, 36);
             this.menuStrip1.TabIndex = 42;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // userToolStripMenuItem
             // 
+            this.userToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(77, 25);
             this.userToolStripMenuItem.Text = "Users";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
             // 
+            this.orderToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(82, 29);
+            this.orderToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
             this.orderToolStripMenuItem.Text = "Orders";
             this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click_1);
             // 
             // itemsToolStripMenuItem
             // 
+            this.itemsToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
-            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(72, 29);
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
             this.itemsToolStripMenuItem.Text = "Items";
             this.itemsToolStripMenuItem.Click += new System.EventHandler(this.itemsToolStripMenuItem_Click_1);
             // 
@@ -286,23 +281,32 @@
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem1,
             this.orderToolStripMenuItem1});
+            this.reportsToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(89, 29);
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(95, 25);
             this.reportsToolStripMenuItem.Text = "Reports";
             // 
             // userToolStripMenuItem1
             // 
             this.userToolStripMenuItem1.Name = "userToolStripMenuItem1";
-            this.userToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.userToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
             this.userToolStripMenuItem1.Text = "User ";
             this.userToolStripMenuItem1.Click += new System.EventHandler(this.userToolStripMenuItem1_Click_1);
             // 
             // orderToolStripMenuItem1
             // 
             this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
-            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.orderToolStripMenuItem1.Size = new System.Drawing.Size(160, 34);
             this.orderToolStripMenuItem1.Text = "Order";
             this.orderToolStripMenuItem1.Click += new System.EventHandler(this.orderToolStripMenuItem1_Click_1);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(60, 25);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // UserReport
             // 
@@ -313,7 +317,6 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.printButton);
             this.Controls.Add(this.totalAmountlabel);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.itemDataGridView);
             this.Controls.Add(this.userWiseButton);
             this.Controls.Add(this.userComboBox);
@@ -354,7 +357,6 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Label totalAmountlabel;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewLinkColumn Details;
         private System.Windows.Forms.Button printButton;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -364,5 +366,6 @@
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem orderToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }

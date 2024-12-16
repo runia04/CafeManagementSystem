@@ -36,13 +36,7 @@ namespace CafeManagementSystem
             form1.Show();
         }
 
-        private void logoutLabel_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 login = new Form1();
-            login.Show();
-           
-        }
+     
 
         private void itemsLabel_Click(object sender, EventArgs e)
         {
@@ -196,11 +190,18 @@ namespace CafeManagementSystem
                 if (!isAdmin)
                 {
                     menuStrip1.Visible = false;
+                    exitlabel.Visible = true;
+                }
+                else
+                {
+                    menuStrip1.Visible = true;
+                    exitlabel.Visible = false;
                 }
             }
             catch
             {
-
+                menuStrip1.Visible = true;
+                exitlabel.Visible = false;
             }
             DeleteDataFromTempOrder();
             LoadOrderDataGV();
@@ -485,6 +486,20 @@ namespace CafeManagementSystem
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }

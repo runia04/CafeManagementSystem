@@ -28,7 +28,6 @@ namespace CafeManagementSystem
             itemsGV.DataSource = ds.Tables[0];
             this.itemsGV.Columns["Id"].Visible = false;
             this.itemsGV.Columns["Price"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //   this.itemsGV.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             this.itemsGV.Columns["Price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
         private void orderNoTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -284,6 +283,13 @@ namespace CafeManagementSystem
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }

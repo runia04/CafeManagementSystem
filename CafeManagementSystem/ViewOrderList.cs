@@ -38,7 +38,7 @@ namespace CafeManagementSystem
             DataSet ds = data.Populate(sql);
             try
             {
-                if (ds.Tables.Count > 0)
+                if (ds.Tables[0].Rows.Count > 0)
                 {
                  
                     decimal sumOfTotal = 0;
@@ -49,7 +49,7 @@ namespace CafeManagementSystem
                     dtFirst.Columns.Add("Date");
                     dtFirst.Columns.Add("TotalAmount");
                     DataRow newRow;
-                    for (int i = 0; i < ds.Tables.Count; i++) {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++) {
                         int id = int.Parse(ds.Tables[0].Rows[i]["ID"].ToString());
                         string orderID = ds.Tables[0].Rows[i]["OrderID"].ToString();
                         string userName = ds.Tables[0].Rows[i]["UserName"].ToString();
@@ -95,9 +95,17 @@ namespace CafeManagementSystem
             try
             {
                 int  id = int.Parse(itemDataGridView.Rows[e.RowIndex].Cells[1].Value.ToString());
-                
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Id");
+                dt.Columns.Add("PageName");
+                DataRow dr =dt.NewRow();
+                dr["Id"] = id;
+                dr["PageName"] = "ViewOrderList";
+                dt.Rows.Add(dr);
+
                 DetailsView detailsView = new DetailsView();
-                detailsView.Tag = id;
+                detailsView.Tag = dt;
+              
                 detailsView.Show();
                 this.Hide();
                
@@ -187,6 +195,13 @@ namespace CafeManagementSystem
             this.Hide();
             ViewOrderList viewOrderList = new ViewOrderList();
             viewOrderList.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
         }
     }
 }
